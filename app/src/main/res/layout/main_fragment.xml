@@ -14,8 +14,9 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_04"
         app:layout_constraintDimensionRatio="1:1"
-        tools:src="@tools:sample/avatars"
         />
 
     <TextView
