@@ -80,12 +80,12 @@
 
         <include
             android:id="@+id/include_card2"
-            layout="@layout/main_card"
+            layout="@layout/main_card2"
             />
 
         <include
             android:id="@+id/include_card3"
-            layout="@layout/main_card"
+            layout="@layout/main_card3"
             />
 
         <Button

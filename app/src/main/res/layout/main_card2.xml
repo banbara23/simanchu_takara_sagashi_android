@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_04"
+            android:src="@drawable/img_07"
             />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
-            android:text="タイトル"
+            android:text="雨やどりの福木"
             android:textSize="15sp"
             android:textStyle="bold"
             />
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="難易度 4"
+                android:text="発見難易度 ★★☆☆☆"
                 android:textSize="15sp"
                 />
 
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="場所"
+                android:text="大川／港から車で約8分"
                 android:textSize="15sp"
                 />
         </LinearLayout>
