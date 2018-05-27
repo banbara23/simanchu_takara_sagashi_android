@@ -68,14 +68,34 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
-            android:text="難易度 低"
+            android:text="オススメ"
             android:textSize="18dp"
             android:textStyle="bold"
             />
 
         <include
+            android:id="@+id/include_card1"
             layout="@layout/main_card"
             />
 
+        <include
+            android:id="@+id/include_card2"
+            layout="@layout/main_card"
+            />
+
+        <include
+            android:id="@+id/include_card3"
+            layout="@layout/main_card"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@color/amber"
+            android:text="@string/main_more"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            />
     </LinearLayout>
 </ScrollView>
