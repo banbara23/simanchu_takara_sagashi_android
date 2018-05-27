@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FEFEFE"
+        android:background="@color/light_gray"
         android:orientation="vertical"
         >
 
@@ -24,7 +24,7 @@
 
             <!--上部の画像-->
             <com.flaviofaria.kenburnsview.KenBurnsView
-                android:id="@+id/imageView"
+                android:id="@+id/topImage"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:src="@drawable/img_04"
@@ -41,7 +41,7 @@
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintBottom_toBottomOf="@+id/topImage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.098"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="石垣島の新たな魅力スポットをご紹介します"
                 android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintBottom_toBottomOf="@+id/topImage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.153"
                 app:layout_constraintStart_toStartOf="parent"

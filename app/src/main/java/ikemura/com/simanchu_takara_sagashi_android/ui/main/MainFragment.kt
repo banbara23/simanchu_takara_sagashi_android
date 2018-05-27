@@ -29,4 +29,13 @@ class MainFragment : Fragment() {
         title.text = text
     }
 
+    override fun onResume() {
+        super.onResume()
+        topImage.resume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        topImage.pause()
+    }
 }
