@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         val text = viewModel.data.value
-        message.text = text
+        title.text = text
     }
 
 }

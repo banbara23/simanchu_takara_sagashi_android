@@ -1,51 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.main.MainFragment"
+    android:layout_height="wrap_content"
     >
 
-    <com.flaviofaria.kenburnsview.KenBurnsView
-        android:id="@+id/imageView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:src="@drawable/img_04"
-        app:layout_constraintDimensionRatio="1:1"
-        />
-
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875"
-        />
+        android:background="#FEFEFE"
+        android:orientation="vertical"
+        >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="石垣島の新たな魅力スポットをご紹介します"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.950"
-        />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            tools:context=".ui.main.MainFragment"
+            >
 
-</android.support.constraint.ConstraintLayout>
+            <!--上部の画像-->
+            <com.flaviofaria.kenburnsview.KenBurnsView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/img_04"
+                app:layout_constraintDimensionRatio="1:1"
+                />
+
+            <!--タイトル-->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.098"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.875"
+                />
+            <!--説明-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="石垣島の新たな魅力スポットをご紹介します"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.153"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.950"
+                />
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="難易度 低"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            />
+
+        <include
+            layout="@layout/main_card"
+            />
+
+    </LinearLayout>
+</ScrollView>
