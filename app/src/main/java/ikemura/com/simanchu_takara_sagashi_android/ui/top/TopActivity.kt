@@ -9,21 +9,20 @@ import ikemura.com.simanchu_takara_sagashi_android.ui.main.info.InfoFragment
 import ikemura.com.simanchu_takara_sagashi_android.ui.main.main.MainFragment
 import kotlinx.android.synthetic.main.activity_top.*
 
+/**
+ * メイン画面
+ */
 class TopActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-//                message.setText(R.string.title_home)
+                //ホーム
                 commitFragment(MainFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
-//            R.id.navigation_dashboard -> {
-//                message.setText(R.string.title_dashboard)
-//                return@OnNavigationItemSelectedListener true
-//            }
             R.id.navigation_info -> {
-                message.setText(R.string.title_notifications)
+                //アプリ情報
                 commitFragment(InfoFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
@@ -31,19 +30,22 @@ class TopActivity : AppCompatActivity() {
         false
     }
 
+    /**
+     * onCreate
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_top)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                    .replace(R.id.container, MainFragment.newInstance())
-//                    .commitNow()
             commitFragment(MainFragment.newInstance())
         }
     }
 
+    /**
+     * Fragmentコミット
+     */
     private fun commitFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
