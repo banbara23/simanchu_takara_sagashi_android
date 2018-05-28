@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">島人ぬ宝さがし</string>
     <string name="main_more">もっとみる</string>
+    <string name="title_home">ホーム</string>
+    <!--<string name="title_dashboard">Dashboard</string>-->
+    <string name="title_notifications">アプリ情報</string>
 </resources>

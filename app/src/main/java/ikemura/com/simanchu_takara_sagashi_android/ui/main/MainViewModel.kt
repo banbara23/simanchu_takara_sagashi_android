@@ -1,4 +1,4 @@
-package ikemura.com.simanchu_takara_sagashi_android.ui.main
+package ikemura.com.simanchu_takara_sagashi_android.ui.main.main
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData

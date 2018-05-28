@@ -1,8 +1,8 @@
 package ikemura.com.simanchu_takara_sagashi_android
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import ikemura.com.simanchu_takara_sagashi_android.ui.main.MainFragment
+import android.support.v7.app.AppCompatActivity
+import ikemura.com.simanchu_takara_sagashi_android.ui.main.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
