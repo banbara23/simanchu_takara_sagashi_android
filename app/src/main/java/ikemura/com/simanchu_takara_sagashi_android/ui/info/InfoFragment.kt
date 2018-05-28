@@ -1,6 +1,8 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.main.info
 
+import android.net.Uri
 import android.os.Bundle
+import android.support.customtabs.CustomTabsIntent
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,5 +29,13 @@ class InfoFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         version_name.text = "Version ${BuildConfig.VERSION_NAME}"
+
+        youtube.setOnClickListener({
+            val url = "https://youtu.be/VBWG-vBVFEY"
+            val builder: CustomTabsIntent.Builder = CustomTabsIntent.Builder()
+
+            val customTabsIntent: CustomTabsIntent = builder.build()
+            customTabsIntent.launchUrl(activity, Uri.parse(url))
+        })
     }
 }
