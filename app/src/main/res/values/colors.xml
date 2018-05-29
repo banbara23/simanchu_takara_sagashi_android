@@ -6,5 +6,6 @@
     <color name="white">#FFF</color>
     <color name="amber">#ffc107</color>
     <color name="light_gray">#f5f5f5</color>
+    <color name="gray">#ebebeb</color>
 
 </resources>

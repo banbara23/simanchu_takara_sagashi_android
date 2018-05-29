@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/light_gray"
         android:orientation="vertical"
         >
 
@@ -36,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="#eee"
-            android:padding="8dp"
             >
 
             <LinearLayout
@@ -64,13 +62,59 @@
 
         </FrameLayout>
 
-        <Button
+        <include
+            layout="@layout/delimiter"
+            />
+
+        <FrameLayout
             android:id="@+id/youtube"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="動画"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/info_movie_button_text"
+                />
+        </FrameLayout>
+
+        <include
+            layout="@layout/delimiter"
             />
 
+        <FrameLayout
+            android:id="@+id/site"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/info_site_button_text"
+                />
+        </FrameLayout>
+
+        <include
+            layout="@layout/delimiter"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/info_site_description"
+            />
     </LinearLayout>
 </ScrollView>

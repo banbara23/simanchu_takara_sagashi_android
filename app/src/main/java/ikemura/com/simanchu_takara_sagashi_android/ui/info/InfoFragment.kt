@@ -31,11 +31,21 @@ class InfoFragment : Fragment() {
         version_name.text = "Version ${BuildConfig.VERSION_NAME}"
 
         youtube.setOnClickListener({
-            val url = "https://youtu.be/VBWG-vBVFEY"
-            val builder: CustomTabsIntent.Builder = CustomTabsIntent.Builder()
+            startCustomTab("https://youtu.be/VBWG-vBVFEY")
 
-            val customTabsIntent: CustomTabsIntent = builder.build()
-            customTabsIntent.launchUrl(activity, Uri.parse(url))
         })
+        site.setOnClickListener {
+            startCustomTab("http://www.city.ishigaki.okinawa.jp/matome/shima.html")
+        }
+    }
+
+    /**
+     * カスタムタブ起動
+     */
+    private fun startCustomTab(url: String) {
+        val builder: CustomTabsIntent.Builder = CustomTabsIntent.Builder()
+
+        val customTabsIntent: CustomTabsIntent = builder.build()
+        customTabsIntent.launchUrl(activity, Uri.parse(url))
     }
 }
