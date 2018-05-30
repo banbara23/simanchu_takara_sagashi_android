@@ -7,4 +7,7 @@
     <string name="info_movie_button_text">プロジェクト動画</string>
     <string name="info_site_button_text">公式サイト</string>
     <string name="info_site_description">「島人ぬ宝さがしプロジェクト」とは？\n\n「島人ぬ宝さがしプロジェクト」は2016年にスタートした、市民参加型プロジェクト。\n石垣島の島人（しまんちゅ）たちが山、樹木、道など身の回りにあるありとあらゆるものに新しく名前をつけることで、その存在に気がつき、知り、広め、後世に伝えていこうと、石垣島出身のアーティスト、BEGINの比嘉栄昇さんが発起人となり始めたこころみだ。</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
