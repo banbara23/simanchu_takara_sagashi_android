@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import ikemura.com.simanchu_takara_sagashi_android.BuildConfig
 import ikemura.com.simanchu_takara_sagashi_android.R
-import ikemura.com.simanchu_takara_sagashi_android.ui.main.main.MainViewModel
+import ikemura.com.simanchu_takara_sagashi_android.ui.main.MainViewModel
 import kotlinx.android.synthetic.main.info_fragment.*
 
 class InfoFragment : Fragment() {
