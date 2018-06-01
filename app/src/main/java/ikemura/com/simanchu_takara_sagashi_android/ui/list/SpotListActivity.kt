@@ -2,7 +2,6 @@ package ikemura.com.simanchu_takara_sagashi_android.ui.list
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -10,12 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import ikemura.com.simanchu_takara_sagashi_android.R
+import ikemura.com.simanchu_takara_sagashi_android.SpotRepository
+import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailFragment
-import ikemura.com.simanchu_takara_sagashi_android.ui.detail.dummy.DummyContent
 import kotlinx.android.synthetic.main.activity_item_list.*
 import kotlinx.android.synthetic.main.item_list.*
-import kotlinx.android.synthetic.main.item_list_content.view.*
+import kotlinx.android.synthetic.main.main_card.view.*
 
 /**
  * An activity representing a list of Pings. This activity
@@ -40,10 +40,10 @@ class SpotListActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.title = title
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+//        fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show()
+//        }
 
         if (item_detail_container != null) {
             // The detail container view will be present only in the
@@ -57,11 +57,12 @@ class SpotListActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
-        recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, twoPane)
+        val data = SpotRepository(this).fetchList()
+        recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, data.spots, twoPane)
     }
 
     class SimpleItemRecyclerViewAdapter(private val parentActivity: SpotListActivity,
-                                        private val values: List<DummyContent.DummyItem>,
+                                        private val spots: List<Spot>,
                                         private val twoPane: Boolean) :
             RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
 
@@ -69,7 +70,7 @@ class SpotListActivity : AppCompatActivity() {
 
         init {
             onClickListener = View.OnClickListener { v ->
-                val item = v.tag as DummyContent.DummyItem
+                val item = v.tag as Spot
                 if (twoPane) {
                     val fragment = SpotDetailFragment().apply {
                         arguments = Bundle().apply {
@@ -96,9 +97,10 @@ class SpotListActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            val item = values[position]
-            holder.idView.text = item.id
-            holder.contentView.text = item.content
+            val item = spots[position]
+            holder.nameView.text = item.name
+            holder.levelView.text = item.level
+            holder.placeView.text = item.place
 
             with(holder.itemView) {
                 tag = item
@@ -106,11 +108,12 @@ class SpotListActivity : AppCompatActivity() {
             }
         }
 
-        override fun getItemCount() = values.size
+        override fun getItemCount() = spots.size
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val idView: TextView = view.id_text
-            val contentView: TextView = view.content
+            val nameView: TextView = view.name
+            val levelView: TextView = view.level
+            val placeView: TextView = view.place
         }
     }
 }

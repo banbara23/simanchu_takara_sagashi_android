@@ -41,4 +41,5 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:customtabs:27.1.1'
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    implementation 'org.kie.modules:com-google-code-gson:6.5.0.Final'
 }
