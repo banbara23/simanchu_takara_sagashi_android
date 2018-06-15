@@ -35,6 +35,12 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_04"
+                />
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
@@ -54,7 +60,8 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@+id/item_detail_container"
         app:layout_anchorGravity="top|end"
-        app:srcCompat="@android:drawable/stat_notify_chat"
+        android:background="@color/colorAccent"
+        app:srcCompat="@drawable/ic_favorite_border_black_24dp"
         />
 
 </android.support.design.widget.CoordinatorLayout>
