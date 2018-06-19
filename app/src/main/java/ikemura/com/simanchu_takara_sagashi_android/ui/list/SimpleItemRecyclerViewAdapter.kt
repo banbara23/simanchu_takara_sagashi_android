@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
@@ -27,7 +28,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: SpotListActivity
             if (twoPane) {
                 val fragment = SpotDetailFragment().apply {
                     arguments = Bundle().apply {
-                        putString(SpotDetailFragment.ARG_ITEM_ID, item.id)
+                        putString(Constants.ARG_ITEM_ID, item.id)
                     }
                 }
                 parentActivity.supportFragmentManager
@@ -36,7 +37,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: SpotListActivity
                         .commit()
             } else {
                 val intent = Intent(v.context, SpotDetailActivity::class.java).apply {
-                    putExtra(SpotDetailFragment.ARG_ITEM_ID, item.id)
+                    putExtra(Constants.ARG_ITEM_ID, item.id)
                 }
                 v.context.startActivity(intent)
             }

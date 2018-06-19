@@ -6,35 +6,26 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
-import ikemura.com.simanchu_takara_sagashi_android.ui.detail.dummy.DummyContent
+import ikemura.com.simanchu_takara_sagashi_android.SpotRepository
 import kotlinx.android.synthetic.main.spot_detail_activity.*
 import kotlinx.android.synthetic.main.spot_detail_fragment.*
 
 /**
- * A fragment representing a single Item detail screen.
- * This fragment is either contained in a [ItemListActivity]
- * in two-pane mode (on tablets) or a [SpotDetailActivity]
- * on handsets.
+ * 詳細画面のFragment
  */
 class SpotDetailFragment : Fragment() {
 
     private lateinit var viewModel: SpotDetailViewModel
-    /**
-     * The dummy content this fragment is presenting.
-     */
-    private var item: DummyContent.DummyItem? = null
+    private lateinit var spotId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            if (it.containsKey(ARG_ITEM_ID)) {
-                // Load the dummy content specified by the fragment
-                // arguments. In a real-world scenario, use a Loader
-                // to load content from a content provider.
-                item = DummyContent.ITEM_MAP[it.getString(ARG_ITEM_ID)]
-                activity?.toolbar_layout?.title = item?.content
+            if (it.containsKey(Constants.ARG_ITEM_ID)) {
+                spotId = it.getString(Constants.ARG_ITEM_ID, "")
             }
         }
     }
@@ -43,29 +34,30 @@ class SpotDetailFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.spot_detail_fragment, container, false)
 
-        // Show the dummy content as text in a TextView.
-//        item?.let {
-//            rootView.item_detail_text.text = it.details
-//        }
-
         return rootView
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(SpotDetailViewModel::class.java)
-        viewModel.data.value?.let {
+        val data = fetchSpotDetail(spotId)
+        // 詳細データが取得できたら
+        data.let {
             // item_detail_text.text = it
+            setActivityTitle(it.name)
             item_detail_text.text = getString(R.string.info_site_description)
         }
-
     }
 
-    companion object {
-        /**
-         * The fragment argument representing the item ID that this fragment
-         * represents.
-         */
-        const val ARG_ITEM_ID = "item_id"
+    /**
+     * リポジトリからスポット詳細を取得する
+     */
+    private fun fetchSpotDetail(spotId: String) = SpotRepository(this.context!!).fetchDetail(spotId)
+
+    /**
+     * スポット名をタイトルにセット
+     */
+    private fun setActivityTitle(name: String) {
+        activity?.toolbar_layout?.title = name
     }
 }

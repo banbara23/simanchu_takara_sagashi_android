@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
 import ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity
@@ -60,7 +61,7 @@ class TopFragment : Fragment() {
 
     private fun navigateToDetail() {
         val intent = Intent(activity, SpotDetailActivity::class.java)
-        intent.putExtra("id", "1")
+        intent.putExtra(Constants.ARG_ITEM_ID, "1")
         startActivity(intent)
     }
 

@@ -5,7 +5,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import ikemura.com.simanchu_takara_sagashi_android.R
-import ikemura.com.simanchu_takara_sagashi_android.ui.main.info.InfoFragment
+import ikemura.com.simanchu_takara_sagashi_android.ui.info.InfoFragment
 import kotlinx.android.synthetic.main.top_activity.*
 
 /**
