@@ -1,5 +1,6 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.detail
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +9,7 @@ import android.view.ViewGroup
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.dummy.DummyContent
 import kotlinx.android.synthetic.main.activity_item_detail.*
-import kotlinx.android.synthetic.main.item_detail.view.*
+import kotlinx.android.synthetic.main.item_detail.*
 
 /**
  * A fragment representing a single Item detail screen.
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.item_detail.view.*
  */
 class SpotDetailFragment : Fragment() {
 
+    private lateinit var viewModel: SpotDetailViewModel
     /**
      * The dummy content this fragment is presenting.
      */
@@ -42,11 +44,21 @@ class SpotDetailFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.item_detail, container, false)
 
         // Show the dummy content as text in a TextView.
-        item?.let {
-            rootView.item_detail.text = it.details
-        }
+//        item?.let {
+//            rootView.item_detail_text.text = it.details
+//        }
 
         return rootView
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(SpotDetailViewModel::class.java)
+        viewModel.data.value?.let {
+            // item_detail_text.text = it
+            item_detail_text.text = getString(R.string.info_site_description)
+        }
+
     }
 
     companion object {

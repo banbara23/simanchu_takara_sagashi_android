@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 xmlns:tools="http://schemas.android.com/tools"
-                                                 android:layout_width="match_parent"
-                                                 android:layout_height="match_parent"
-                                                 android:fitsSystemWindows="true"
-                                                 tools:context=".ui.detail.SpotDetailActivity"
-                                                 tools:ignore="MergeRootFrame"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.detail.SpotDetailActivity"
+    tools:ignore="MergeRootFrame"
     >
 
     <android.support.design.widget.AppBarLayout
@@ -58,9 +58,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         android:layout_margin="@dimen/fab_margin"
+        android:background="@color/colorAccent"
+        android:visibility="gone"
         app:layout_anchor="@+id/item_detail_container"
         app:layout_anchorGravity="top|end"
-        android:background="@color/colorAccent"
         app:srcCompat="@drawable/ic_favorite_border_black_24dp"
         />
 
