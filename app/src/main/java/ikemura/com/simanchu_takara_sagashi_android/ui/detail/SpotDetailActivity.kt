@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity
-import kotlinx.android.synthetic.main.activity_item_detail.*
+import kotlinx.android.synthetic.main.spot_detail_activity.*
 
 /**
  * An activity representing a single Item detail screen. This
@@ -23,7 +23,7 @@ class SpotDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_item_detail)
+        setContentView(R.layout.spot_detail_activity)
         setSupportActionBar(detail_toolbar)
 
         fab.setOnClickListener { view ->

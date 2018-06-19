@@ -12,7 +12,7 @@ import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailFragment
-import kotlinx.android.synthetic.main.item_list_content.view.*
+import kotlinx.android.synthetic.main.list_item_content.view.*
 
 class SimpleItemRecyclerViewAdapter(private val parentActivity: SpotListActivity,
                                     private val spots: List<Spot>,
@@ -45,7 +45,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: SpotListActivity
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_list_content, parent, false)
+                .inflate(R.layout.list_item_content, parent, false)
         return ViewHolder(view)
     }
 

@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.SpotRepository
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
-import kotlinx.android.synthetic.main.activity_item_list.*
-import kotlinx.android.synthetic.main.item_list.*
+import kotlinx.android.synthetic.main.spot_list_activity.*
+import kotlinx.android.synthetic.main.spot_list_view.*
 
 /**
  * An activity representing a list of Pings. This activity
@@ -27,7 +27,7 @@ class SpotListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_item_list)
+        setContentView(R.layout.spot_list_activity)
 
         setSupportActionBar(toolbar)
         toolbar.title = title

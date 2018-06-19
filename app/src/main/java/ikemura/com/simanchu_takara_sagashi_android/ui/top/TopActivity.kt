@@ -1,4 +1,4 @@
-package ikemura.com.simanchu_takara_sagashi_android.ui.main.top
+package ikemura.com.simanchu_takara_sagashi_android.ui.top
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -6,8 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.ui.main.info.InfoFragment
-import ikemura.com.simanchu_takara_sagashi_android.ui.main.main.MainFragment
-import kotlinx.android.synthetic.main.activity_top.*
+import kotlinx.android.synthetic.main.top_activity.*
 
 /**
  * メイン画面
@@ -18,7 +17,7 @@ class TopActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_home -> {
                 //ホーム
-                commitFragment(MainFragment.newInstance())
+                commitFragment(TopFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_info -> {
@@ -35,11 +34,11 @@ class TopActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_top)
+        setContentView(R.layout.top_activity)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         if (savedInstanceState == null) {
-            commitFragment(MainFragment.newInstance())
+            commitFragment(TopFragment.newInstance())
         }
     }
 

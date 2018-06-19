@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.dummy.DummyContent
-import kotlinx.android.synthetic.main.activity_item_detail.*
-import kotlinx.android.synthetic.main.item_detail.*
+import kotlinx.android.synthetic.main.spot_detail_activity.*
+import kotlinx.android.synthetic.main.spot_detail_fragment.*
 
 /**
  * A fragment representing a single Item detail screen.
@@ -41,7 +41,7 @@ class SpotDetailFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.item_detail, container, false)
+        val rootView = inflater.inflate(R.layout.spot_detail_fragment, container, false)
 
         // Show the dummy content as text in a TextView.
 //        item?.let {

@@ -1,4 +1,4 @@
-package ikemura.com.simanchu_takara_sagashi_android.ui.main.info
+package ikemura.com.simanchu_takara_sagashi_android.ui.info
 
 import android.net.Uri
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import ikemura.com.simanchu_takara_sagashi_android.BuildConfig
 import ikemura.com.simanchu_takara_sagashi_android.R
-import ikemura.com.simanchu_takara_sagashi_android.ui.main.MainViewModel
+import ikemura.com.simanchu_takara_sagashi_android.ui.top.TopViewModel
 import kotlinx.android.synthetic.main.info_fragment.*
 
 class InfoFragment : Fragment() {
@@ -18,7 +18,7 @@ class InfoFragment : Fragment() {
         fun newInstance() = InfoFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: TopViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

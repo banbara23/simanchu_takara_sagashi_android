@@ -32,7 +32,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
 
-        <include layout="@layout/item_list"/>
+        <include layout="@layout/spot_list_view"/>
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
