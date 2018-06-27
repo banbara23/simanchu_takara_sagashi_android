@@ -1,26 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_detail_container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
     >
 
-    <TextView
-        android:id="@+id/description"
-        style="?android:attr/textAppearanceLarge"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textIsSelectable="true"
-        tools:context=".ui.detail.SpotDetailFragment"
-        tools:text="@string/info_site_description"
-        />
+        android:orientation="vertical"
+        >
 
-    <Button
-        android:id="@+id/map"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="地図で見る"
-        />
-</LinearLayout>
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_04"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="タイトル"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="難易度：４"
+            />
+
+        <TextView
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="場所：白保／港から車で約25分"
+            />
+
+        <TextView
+            android:id="@+id/description"
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="4dp"
+            tools:text="@string/info_site_description"
+            />
+
+        <Button
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="地図で見る"
+            />
+    </LinearLayout>
+</ScrollView>
