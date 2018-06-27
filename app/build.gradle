@@ -15,11 +15,32 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
+//    signingConfigs {
+//        stg {
+//            keyAlias 'DreamApp'
+//            keyPassword 'yumemi'
+//            storeFile file('src/staging/keystore.jks')
+//            storePassword 'yumemi'
+//        }
+//        prod {
+//            keyAlias 'takashimaya'
+//            keyPassword 'takashimaya'
+//            storeFile file('src/product/takashimaya.keystore')
+//            storePassword 'takashimaya'
+//        }
+//    }
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 ext {
