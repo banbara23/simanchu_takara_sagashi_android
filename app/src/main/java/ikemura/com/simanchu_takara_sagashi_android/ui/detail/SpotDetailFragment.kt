@@ -45,7 +45,7 @@ class SpotDetailFragment : Fragment() {
         data.let {
             // item_detail_text.text = it
             setActivityTitle(it.name)
-            item_detail_text.text = getString(R.string.info_site_description)
+            description.text = it.description
         }
     }
 
