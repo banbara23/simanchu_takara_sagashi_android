@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.SpotRepository
-import kotlinx.android.synthetic.main.spot_detail_activity.*
 import kotlinx.android.synthetic.main.spot_detail_fragment.*
 
 /**
@@ -44,7 +43,7 @@ class SpotDetailFragment : Fragment() {
         // 詳細データが取得できたら
         data.let {
             // item_detail_text.text = it
-            setActivityTitle(it.name)
+//            setActivityTitle(it.name)
             description.text = it.description
         }
     }
@@ -57,7 +56,7 @@ class SpotDetailFragment : Fragment() {
     /**
      * スポット名をタイトルにセット
      */
-    private fun setActivityTitle(name: String) {
-        activity?.toolbar_layout?.title = name
-    }
+//    private fun setActivityTitle(name: String) {
+//        activity?.toolbar_layout?.title = name
+//    }
 }
