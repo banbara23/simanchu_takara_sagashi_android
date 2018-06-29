@@ -31,6 +31,7 @@ class SpotListActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         toolbar.title = title
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (item_detail_container != null) {
             twoPane = true
