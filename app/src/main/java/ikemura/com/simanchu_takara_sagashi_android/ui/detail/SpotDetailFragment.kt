@@ -1,6 +1,7 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.detail
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.SpotRepository
+import ikemura.com.simanchu_takara_sagashi_android.ui.fullscreen.FullscreenActivity
 import kotlinx.android.synthetic.main.spot_detail_fragment.*
 
 /**
@@ -42,8 +44,7 @@ class SpotDetailFragment : Fragment() {
         val data = fetchSpotDetail(spotId)
         // 詳細データが取得できたら
         data.let {
-            // item_detail_text.text = it
-//            setActivityTitle(it.name)
+            detail_image.setOnClickListener { startActivity(Intent(this.activity!!, FullscreenActivity::class.java)) }
             detail_title.text = it.name
             detail_level.text = "難易度：${it.level}"
             detail_place.text = "場所：${it.place}"
