@@ -1,8 +1,11 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.list
 
+import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
+import android.view.MenuItem
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.SpotRepository
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
@@ -44,4 +47,13 @@ class SpotListActivity : AppCompatActivity() {
         val data = SpotRepository(this).fetchList()
         recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, data.spots, twoPane)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem) =
+            when (item.itemId) {
+                android.R.id.home -> {
+                    NavUtils.navigateUpTo(this, Intent(this, SpotListActivity::class.java))
+                    true
+                }
+                else -> super.onOptionsItemSelected(item)
+            }
 }
