@@ -44,6 +44,9 @@ class SpotDetailFragment : Fragment() {
         data.let {
             // item_detail_text.text = it
 //            setActivityTitle(it.name)
+            detail_title.text = it.name
+            detail_level.text = "難易度：${it.level}"
+            detail_place.text = "場所：${it.place}"
             description.text = it.description
         }
     }

@@ -22,7 +22,7 @@
             />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -36,6 +36,7 @@
             />
 
         <TextView
+            android:id="@+id/detail_level"
             style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,6 +48,7 @@
             />
 
         <TextView
+            android:id="@+id/detail_place"
             style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
