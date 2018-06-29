@@ -8,12 +8,20 @@
     tools:context=".ui.detail.SpotDetailActivity"
     >
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/detail_toolbar"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/transparent"
-        />
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/detail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            />
+    </android.support.design.widget.AppBarLayout>
+
 
     <FrameLayout
         android:id="@+id/activity_detail_container"
