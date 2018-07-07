@@ -2,8 +2,8 @@ package ikemura.com.simanchu_takara_sagashi_android.ui.info
 
 import android.net.Uri
 import android.os.Bundle
-import android.support.customtabs.CustomTabsIntent
-import android.support.v4.app.Fragment
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
