@@ -5,7 +5,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import ikemura.com.simanchu_takara_sagashi_android.R
+import ikemura.com.simanchu_takara_sagashi_android.ui.favorite.FavoriteListFragment
 import ikemura.com.simanchu_takara_sagashi_android.ui.info.InfoFragment
+import ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListFragment
 import kotlinx.android.synthetic.main.top_activity.*
 
 /**
@@ -22,7 +24,7 @@ class TopActivity : AppCompatActivity() {
             }
             R.id.navigation_favorite -> {
                 //お気に入り
-                commitFragment(TopFragment.newInstance())
+                commitFragment(FavoriteListFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_info -> {

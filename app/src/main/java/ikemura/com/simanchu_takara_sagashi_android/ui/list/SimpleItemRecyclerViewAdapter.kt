@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
@@ -15,7 +17,7 @@ import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailFragment
 import kotlinx.android.synthetic.main.list_item_content.view.*
 
-class SimpleItemRecyclerViewAdapter(private val parentActivity: SpotListActivity,
+class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity,
                                     private val spots: List<Spot>,
                                     private val twoPane: Boolean) :
         RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
@@ -36,7 +38,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: SpotListActivity
                         .replace(R.id.item_detail_container, fragment)
                         .commit()
             } else {
-                val intent = Intent(v.context, SpotDetailActivity::class.java).apply {
+                val intent = Intent(v.context, parentActivity::class.java).apply {
                     putExtra(Constants.ARG_ITEM_ID, item.id)
                 }
                 v.context.startActivity(intent)
