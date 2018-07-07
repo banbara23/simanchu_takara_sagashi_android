@@ -3,8 +3,8 @@ package ikemura.com.simanchu_takara_sagashi_android.ui.fullscreen
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.NavUtils
-import android.support.v7.app.AppCompatActivity
+import androidx.core.app.NavUtils
+import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
 import ikemura.com.simanchu_takara_sagashi_android.R

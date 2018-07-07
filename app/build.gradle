@@ -5,14 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "ikemura.com.simanchu_takara_sagashi_android"
-        minSdkVersion 15
-        targetSdkVersion 27
+        minSdkVersion 18
+        targetSdkVersion 28
         versionCode 2
         versionName "0.2"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
 //    signingConfigs {
@@ -44,23 +44,23 @@ android {
     }
 }
 ext {
-    support_library = "27.1.1"
+    support_library = "28.0.0-alpha3"
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha1'
 
-    implementation "com.android.support:appcompat-v7:$support_library"
-    implementation "com.android.support:design:$support_library"
-    implementation "com.android.support:support-vector-drawable:$support_library"
-    implementation "com.android.support:support-v4:$support_library"
-    implementation "com.android.support:recyclerview-v7:$support_library"
-    implementation "com.android.support:cardview-v7:$support_library"
-    implementation "com.android.support:customtabs:$support_library"
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'com.google.android.material:material:1.0.0-beta01'
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.0-beta01'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
+    implementation 'androidx.cardview:cardview:1.0.0-beta01'
+    implementation 'androidx.browser:browser:1.0.0-beta01'
 
-    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-beta01'
 //    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha01'
 //    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha01'
 
@@ -68,9 +68,9 @@ dependencies {
     implementation 'org.kie.modules:com-google-code-gson:6.5.0.Final'
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
 
 }

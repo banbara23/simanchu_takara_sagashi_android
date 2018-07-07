@@ -1,9 +1,9 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.top
 
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.ui.info.InfoFragment
 import kotlinx.android.synthetic.main.top_activity.*

@@ -1,8 +1,8 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.top
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 class TopViewModel : ViewModel() {
     private val _data = MutableLiveData<String>()
