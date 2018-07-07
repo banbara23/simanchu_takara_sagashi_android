@@ -20,6 +20,11 @@ class TopActivity : AppCompatActivity() {
                 commitFragment(TopFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
+            R.id.navigation_favorite -> {
+                //お気に入り
+                commitFragment(TopFragment.newInstance())
+                return@OnNavigationItemSelectedListener true
+            }
             R.id.navigation_info -> {
                 //アプリ情報
                 commitFragment(InfoFragment.newInstance())

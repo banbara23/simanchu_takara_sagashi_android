@@ -2,7 +2,7 @@
     <string name="app_name">島人ぬ宝さがし</string>
     <string name="main_more">もっとみる</string>
     <string name="title_home">ホーム</string>
-    <!--<string name="title_dashboard">Dashboard</string>-->
+    <string name="title_favorite">お気に入り</string>
     <string name="title_notifications">アプリ情報</string>
     <string name="info_movie_button_text">プロジェクト動画</string>
     <string name="info_site_button_text">公式サイト</string>
