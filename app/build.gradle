@@ -15,20 +15,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
-//    signingConfigs {
-//        stg {
-//            keyAlias 'DreamApp'
-//            keyPassword 'yumemi'
-//            storeFile file('src/staging/keystore.jks')
-//            storePassword 'yumemi'
-//        }
-//        prod {
-//            keyAlias 'takashimaya'
-//            keyPassword 'takashimaya'
-//            storeFile file('src/product/takashimaya.keystore')
-//            storePassword 'takashimaya'
-//        }
-//    }
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
@@ -61,8 +47,6 @@ dependencies {
     implementation 'androidx.browser:browser:1.0.0-beta01'
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-beta01'
-//    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha01'
-//    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha01'
 
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
     implementation 'org.kie.modules:com-google-code-gson:6.5.0.Final'
