@@ -1,20 +1,19 @@
 package ikemura.com.simanchu_takara_sagashi_android.common
 
-import android.app.Application
 import org.junit.Before
 import org.junit.Test
 
 class PreferenceModelTest {
 
-    lateinit var target: PreferenceModel
+    //    lateinit var target: PreferenceModel
     @Before
     fun setUp() {
-        target = PreferenceModel(Application())
+//        target = PreferenceModel(Application())
     }
 
     @Test
     fun setFavorite() {
-        val array = target.getFavorite()
+//        val array = target.getFavorite()
     }
 
     @Test

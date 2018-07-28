@@ -1,12 +1,14 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.detail
 
-import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.SpotRepository
@@ -20,6 +22,7 @@ class SpotDetailFragment : Fragment() {
 
     private lateinit var viewModel: SpotDetailViewModel
     private lateinit var spotId: String
+    private var isFavorite = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +36,23 @@ class SpotDetailFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.spot_detail_fragment, container, false)
-
-        return rootView
+        return inflater.inflate(R.layout.spot_detail_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        setupNavigationClick()
+        setupFavorite()
+        setupViewModel()
+    }
+
+    private fun setupNavigationClick() {
+        detail_toolbar.setNavigationOnClickListener {
+            activity?.finish()
+        }
+    }
+
+    private fun setupViewModel() {
         viewModel = ViewModelProviders.of(this).get(SpotDetailViewModel::class.java)
         val data = fetchSpotDetail(spotId)
         // 詳細データが取得できたら
@@ -49,6 +62,26 @@ class SpotDetailFragment : Fragment() {
             detail_level.text = "難易度：${it.level}"
             detail_place.text = "場所：${it.place}"
             description.text = it.description
+        }
+    }
+
+    private fun setupFavorite() {
+        favorite.setOnClickListener { view ->
+
+            isFavorite = !isFavorite
+            val status: String
+            val drawable = if (isFavorite) {
+                status = "登録"
+                R.drawable.ic_favorite_black_24dp
+            } else {
+                status = "解除"
+                R.drawable.ic_favorite_border_black_24dp
+            }
+
+            favorite.setImageDrawable(ContextCompat.getDrawable(context!!, drawable))
+
+            Snackbar.make(view, "お気に入りを${status}しました", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show()
         }
     }
 
