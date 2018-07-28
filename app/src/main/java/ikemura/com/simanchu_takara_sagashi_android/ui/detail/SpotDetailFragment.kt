@@ -2,6 +2,7 @@ package ikemura.com.simanchu_takara_sagashi_android.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ class SpotDetailFragment : Fragment() {
     private lateinit var spotId: String
     private var isFavorite = false
     private var spot: Spot? = null
+    private val TAG: String = SpotDetailFragment::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,7 @@ class SpotDetailFragment : Fragment() {
         arguments?.let {
             if (it.containsKey(Constants.ARG_ITEM_ID)) {
                 spotId = it.getString(Constants.ARG_ITEM_ID, "")
+                Log.d(TAG, "spotId=$spotId")
             }
         }
     }

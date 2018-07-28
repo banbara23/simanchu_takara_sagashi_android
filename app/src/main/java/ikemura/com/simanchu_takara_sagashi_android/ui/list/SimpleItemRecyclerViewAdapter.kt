@@ -1,36 +1,34 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.list
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.RecyclerView
 import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
-import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailFragment
 import kotlinx.android.synthetic.main.list_item_content.view.*
 
 class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity,
                                     private val spots: List<Spot>,
-                                    private val twoPane: Boolean) :
+                                    private val twoPane: Boolean,
+                                    private val listener: OnListFragmentInteractionListener?) :
         RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
 
     private val onClickListener: View.OnClickListener
 
     init {
         onClickListener = View.OnClickListener { v ->
-            val item = v.tag as Spot
+            val spot = v.tag as Spot
             if (twoPane) {
                 val fragment = SpotDetailFragment().apply {
                     arguments = Bundle().apply {
-                        putString(Constants.ARG_ITEM_ID, item.id)
+                        putString(Constants.ARG_ITEM_ID, spot.id)
                     }
                 }
                 parentActivity.supportFragmentManager
@@ -38,10 +36,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
                         .replace(R.id.item_detail_container, fragment)
                         .commit()
             } else {
-                val intent = Intent(v.context, parentActivity::class.java).apply {
-                    putExtra(Constants.ARG_ITEM_ID, item.id)
-                }
-                v.context.startActivity(intent)
+                listener?.onListFragmentInteraction(spot)
             }
         }
     }
