@@ -12,10 +12,16 @@ import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
-import ikemura.com.simanchu_takara_sagashi_android.SpotRepository
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
+import ikemura.com.simanchu_takara_sagashi_android.repository.SpotRepository
 import ikemura.com.simanchu_takara_sagashi_android.ui.fullscreen.FullscreenActivity
-import kotlinx.android.synthetic.main.spot_detail_fragment.*
+import kotlinx.android.synthetic.main.spot_detail_fragment.description
+import kotlinx.android.synthetic.main.spot_detail_fragment.detail_image
+import kotlinx.android.synthetic.main.spot_detail_fragment.detail_level
+import kotlinx.android.synthetic.main.spot_detail_fragment.detail_place
+import kotlinx.android.synthetic.main.spot_detail_fragment.detail_title
+import kotlinx.android.synthetic.main.spot_detail_fragment.detail_toolbar
+import kotlinx.android.synthetic.main.spot_detail_fragment.favorite
 
 /**
  * スポット詳細 Fragment
@@ -97,6 +103,6 @@ class SpotDetailFragment : Fragment() {
     /**
      * リポジトリからスポット詳細を取得する
      */
-    private fun fetchSpotDetail(spotId: String) = SpotRepository(this.context!!).fetchDetail(spotId)
+    private fun fetchSpotDetail(spotId: String) = SpotRepository(this.context!!).getSpot(spotId)
 
 }

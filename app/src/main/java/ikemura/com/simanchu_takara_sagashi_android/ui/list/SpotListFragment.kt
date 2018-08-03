@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
-import ikemura.com.simanchu_takara_sagashi_android.SpotRepository
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
-import kotlinx.android.synthetic.main.spot_list_view.*
+import kotlinx.android.synthetic.main.spot_list_view.item_list
 
 class SpotListFragment : Fragment(), OnListFragmentInteractionListener {
 
@@ -31,14 +31,27 @@ class SpotListFragment : Fragment(), OnListFragmentInteractionListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(SpotListViewModel::class.java)
+        setupViewModel()
         setupRecyclerView(item_list)
+        viewModel.fetchList()
+    }
+
+    private fun setupViewModel() {
+        viewModel = ViewModelProviders.of(this).get(SpotListViewModel::class.java)
+        viewModel.spots.observe(this, Observer {
+            it ?: return@Observer
+            setToAdapter(it)
+        })
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
         listener = this
-        val data = SpotRepository(activity!!).fetchList()
-        recyclerView.adapter = SimpleItemRecyclerViewAdapter(activity!!, data.spots, false, listener)
+        recyclerView.adapter = SimpleItemRecyclerViewAdapter(activity!!, viewModel.spots.value, false, listener)
+    }
+
+    private fun setToAdapter(spots: List<Spot>) {
+        val adapter = item_list.adapter as SimpleItemRecyclerViewAdapter
+        adapter.replaceAll(spots)
     }
 
     override fun onListFragmentInteraction(item: Spot) {

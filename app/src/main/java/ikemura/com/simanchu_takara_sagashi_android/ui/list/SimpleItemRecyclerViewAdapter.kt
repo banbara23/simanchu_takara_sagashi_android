@@ -12,10 +12,13 @@ import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailFragment
-import kotlinx.android.synthetic.main.list_item_content.view.*
+import kotlinx.android.synthetic.main.list_item_content.view.image
+import kotlinx.android.synthetic.main.list_item_content.view.level
+import kotlinx.android.synthetic.main.list_item_content.view.name
+import kotlinx.android.synthetic.main.list_item_content.view.place
 
 class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity,
-                                    private val spots: List<Spot>,
+                                    private var spots: List<Spot>?,
                                     private val twoPane: Boolean,
                                     private val listener: OnListFragmentInteractionListener?) :
         RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
@@ -48,8 +51,8 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = spots[position]
-//        Picasso.get().load("1").into(holder.imageView)
+        val item = spots!![position]
+//        Picasso.get().load(item.).into(holder.imageView)
         holder.nameView.text = item.name
         holder.levelView.text = item.level
         holder.placeView.text = item.place
@@ -60,7 +63,12 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
         }
     }
 
-    override fun getItemCount() = spots.size
+    fun replaceAll(spots: List<Spot>) {
+        this.spots = spots
+        notifyDataSetChanged()
+    }
+
+    override fun getItemCount() = if (spots == null) 0 else spots!!.size
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.image
