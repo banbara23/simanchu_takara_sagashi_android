@@ -63,23 +63,10 @@ class SpotDetailFragment : Fragment() {
             activity?.finish()
         }
         // 画像タップで全画面
-        detail_image.setOnClickListener { startActivity(Intent(this.activity!!, FullscreenActivity::class.java)) }
-    }
-
-    private fun setupViewModel() {
-        viewModel = ViewModelProviders.of(this).get(SpotDetailViewModel::class.java)
-        val data = fetchSpotDetail(spotId)
-
-        // 詳細データが取得できたら
-        data.let {
-            detail_title.text = it.name
-            detail_level.text = "難易度：${it.level}"
-            detail_place.text = "場所：${it.place}"
-            description.text = it.description
+        detail_image.setOnClickListener {
+            startActivity(Intent(this.activity!!, FullscreenActivity::class.java))
         }
-    }
-
-    private fun setupFavorite() {
+        // お気に入りタップ
         favorite.setOnClickListener { view ->
             isFavorite = !isFavorite
             val status: String
@@ -98,6 +85,34 @@ class SpotDetailFragment : Fragment() {
             Snackbar.make(view, "お気に入りを${status}しました", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show()
         }
+    }
+
+    private fun setupViewModel() {
+        viewModel = ViewModelProviders.of(this).get(SpotDetailViewModel::class.java)
+        val data = fetchSpotDetail(spotId)
+
+        // 詳細データが取得できたら
+        data.let {
+            detail_title.text = it.name
+            detail_level.text = "難易度：${it.level}"
+            detail_place.text = "場所：${it.place}"
+            description.text = it.description
+        }
+    }
+
+    /**
+     * お気に入り表示設定
+     */
+    private fun setupFavorite() {
+        isFavorite = viewModel.isFavorite(spotId)
+        val drawable = if (isFavorite) {
+            viewModel.addFavorite(spotId)
+            R.drawable.ic_favorite_black_24dp
+        } else {
+            viewModel.removeFavorite(spotId)
+            R.drawable.ic_favorite_border_black_24dp
+        }
+        favorite.setImageDrawable(ContextCompat.getDrawable(context!!, drawable))
     }
 
     /**

@@ -5,8 +5,8 @@ import ikemura.com.simanchu_takara_sagashi_android.common.PreferenceModel
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 
 class FavoriteRepository {
-    val preferenceModel = PreferenceModel(AppEnv.instance.mainApplication)
-    val repository = SpotRepository(AppEnv.instance.mainApplication)
+    private val preferenceModel = PreferenceModel(AppEnv.instance.mainApplication)
+    private val repository = SpotRepository(AppEnv.instance.mainApplication)
     /**
      * 一覧を取得
      */

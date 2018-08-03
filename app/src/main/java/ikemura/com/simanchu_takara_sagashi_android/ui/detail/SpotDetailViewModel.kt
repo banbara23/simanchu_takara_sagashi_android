@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ikemura.com.simanchu_takara_sagashi_android.common.AppEnv
+import ikemura.com.simanchu_takara_sagashi_android.repository.FavoriteRepository
 
 /**
  * スポット詳細 ViewModel
@@ -11,6 +12,8 @@ import ikemura.com.simanchu_takara_sagashi_android.common.AppEnv
 class SpotDetailViewModel : ViewModel() {
     private val _data = MutableLiveData<String>()
     private var preferenceModel = AppEnv.instance.preferenceModel
+    private val favoriteRepository = FavoriteRepository()
+
     val data: LiveData<String>
         get() = _data
 
@@ -27,5 +30,11 @@ class SpotDetailViewModel : ViewModel() {
         val favorite = preferenceModel.getFavorite()
         val removedFavorite = favorite.filter { it != spotId }
         preferenceModel.setFavoriteList(removedFavorite as MutableList<String>)
+    }
+
+    fun isFavorite(id: String): Boolean {
+        val favorites = favoriteRepository.getFavoriteList()
+        val fav = favorites.filter { it.id == id }
+        return fav.isNotEmpty()
     }
 }
