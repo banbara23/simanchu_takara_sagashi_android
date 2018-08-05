@@ -43,4 +43,9 @@ class TopViewModel : ViewModel() {
         }
         return recommendSpots
     }
+
+    fun getTopImage(): Spot {
+        val id = (0..21).random()
+        return spotRepository.getSpot(id.toString())
+    }
 }

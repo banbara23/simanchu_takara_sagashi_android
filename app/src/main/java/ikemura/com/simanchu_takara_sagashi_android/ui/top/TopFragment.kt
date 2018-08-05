@@ -36,12 +36,20 @@ class TopFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupEvent()
+        setupTopImage()
         setupRecommendSpots()
+    }
+
+    private fun setupTopImage() {
+        val spot = viewModel.getTopImage()
+        //todo:画像urlをPicassoで表示
+//        Picasso.get().load(spot.url).into()
     }
 
     private fun setupRecommendSpots() {
         val spots = viewModel.getRecommendSpots()
         spots.forEach { Log.d(TAG, "${it.id} ${it.name}") }
+        //todo:オススメ3件を表示設定
     }
 
     override fun onResume() {
