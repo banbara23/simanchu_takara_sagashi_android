@@ -1,37 +1,47 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.top
 
-import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
 import ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity
-import kotlinx.android.synthetic.main.top_fragment.*
+import kotlinx.android.synthetic.main.top_fragment.include_card1
+import kotlinx.android.synthetic.main.top_fragment.include_card2
+import kotlinx.android.synthetic.main.top_fragment.include_card3
+import kotlinx.android.synthetic.main.top_fragment.more
+import kotlinx.android.synthetic.main.top_fragment.topImage
 
 class TopFragment : Fragment() {
 
     companion object {
         fun newInstance() = TopFragment()
+        private val TAG = TopFragment::class.java.simpleName
     }
 
     private lateinit var viewModel: TopViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+        viewModel = ViewModelProviders.of(this).get(TopViewModel::class.java)
         return inflater.inflate(R.layout.top_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(TopViewModel::class.java)
-//        val text = viewModel.data.value
-//        title.text = text
         setupEvent()
+        setupRecommendSpots()
+    }
+
+    private fun setupRecommendSpots() {
+        val spots = viewModel.getRecommendSpots()
+        spots.forEach { Log.d(TAG, "${it.id} ${it.name}") }
     }
 
     override fun onResume() {

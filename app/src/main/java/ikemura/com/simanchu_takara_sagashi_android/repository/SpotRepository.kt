@@ -6,6 +6,7 @@ import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.model.Spots
 
 class SpotRepository(val context: Context) {
+    var spots = Spots()
     /**
      * 一覧を取得
      */
@@ -13,14 +14,15 @@ class SpotRepository(val context: Context) {
         val jsonString = context.assets.open("spot.json").bufferedReader().use {
             it.readText()
         }
-        return Gson().fromJson(jsonString, Spots::class.java)
+        spots = Gson().fromJson(jsonString, Spots::class.java)
+        return spots
     }
 
     /**
      * 詳細を取得
      */
     fun getSpot(id: String): Spot {
-        val response = getSpotList()
-        return response.spots.filter { it.id == id }.first()
+        val response = if (spots.spots.isEmpty()) getSpotList() else spots
+        return response.spots.first { it.id == id }
     }
 }
