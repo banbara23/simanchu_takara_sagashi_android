@@ -27,7 +27,7 @@
         android:layout_width="@dimen/item_width"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:context="ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity"
+        tools:context="ikemura.com.android.ui.list.SpotListActivity"
         tools:listitem="@layout/list_item_content"
         />
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="ikemura.com.simanchu_takara_sagashi_android">
+    package="ikemura.com.android">
 
     <application
         android:name=".common.MainApplication"
@@ -14,15 +14,16 @@
             android:name=".ui.top.TopActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.list.SpotListActivity"
             android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.detail.SpotDetailActivity"
             android:label="@string/title_item_detail"
@@ -30,13 +31,13 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity"/>
+                android:value=".ui.list.SpotListActivity" />
         </activity>
         <activity
             android:name=".ui.fullscreen.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme"/>
+            android:theme="@style/FullscreenTheme" />
     </application>
 
 </manifest>
