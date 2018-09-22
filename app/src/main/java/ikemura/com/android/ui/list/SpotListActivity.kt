@@ -6,7 +6,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
 import ikemura.com.android.R
-import kotlinx.android.synthetic.main.spot_list_activity.*
+import kotlinx.android.synthetic.main.spot_list_activity.toolbar
 
 class SpotListActivity : AppCompatActivity() {
 

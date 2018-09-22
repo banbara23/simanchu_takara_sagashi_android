@@ -18,9 +18,9 @@ import kotlinx.android.synthetic.main.list_item_content.view.name
 import kotlinx.android.synthetic.main.list_item_content.view.place
 
 class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity,
-                                    private var spots: List<Spot>?,
-                                    private val twoPane: Boolean,
-                                    private val listener: OnListFragmentInteractionListener?) :
+        private var spots: List<Spot>?,
+        private val twoPane: Boolean,
+        private val listener: OnListFragmentInteractionListener?) :
         RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
 
     private val onClickListener: View.OnClickListener

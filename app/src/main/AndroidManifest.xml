@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ikemura.com.android">
+<manifest
+    package="ikemura.com.android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <application
         android:name=".common.MainApplication"
@@ -9,10 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <activity
             android:name=".ui.top_screen.TopActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -23,21 +27,25 @@
         <activity
             android:name=".ui.list.SpotListActivity"
             android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".ui.detail.SpotDetailActivity"
             android:label="@string/title_item_detail"
             android:parentActivityName=".ui.list.SpotListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.list.SpotListActivity" />
+                android:value=".ui.list.SpotListActivity"
+                />
         </activity>
         <activity
             android:name=".ui.fullscreen.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/FullscreenTheme"
+            />
     </application>
 
 </manifest>

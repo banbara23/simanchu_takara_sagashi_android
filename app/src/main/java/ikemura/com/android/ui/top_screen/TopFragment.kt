@@ -28,7 +28,7 @@ class TopFragment : Fragment() {
     private lateinit var viewModel: TopViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+            savedInstanceState: Bundle?): View {
         viewModel = ViewModelProviders.of(this).get(TopViewModel::class.java)
         return inflater.inflate(R.layout.top_fragment, container, false)
     }
@@ -48,7 +48,7 @@ class TopFragment : Fragment() {
 
     private fun setupRecommendSpots() {
         val spots = viewModel.getRecommendSpots()
-        spots.forEach { Log.d(TAG, "${it.id} ${it.name}") }
+        spots.forEach { Log.d(TAG, "top recommend id:${it.id} name:${it.name}") }
         //todo:オススメ3件を表示設定
     }
 

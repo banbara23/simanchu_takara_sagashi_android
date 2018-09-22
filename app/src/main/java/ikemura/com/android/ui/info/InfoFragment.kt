@@ -2,15 +2,17 @@ package ikemura.com.android.ui.info
 
 import android.net.Uri
 import android.os.Bundle
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.fragment.app.Fragment
 import ikemura.com.android.BuildConfig
 import ikemura.com.android.R
 import ikemura.com.android.ui.top_screen.TopViewModel
-import kotlinx.android.synthetic.main.info_fragment.*
+import kotlinx.android.synthetic.main.info_fragment.site
+import kotlinx.android.synthetic.main.info_fragment.version_name
+import kotlinx.android.synthetic.main.info_fragment.youtube
 
 class InfoFragment : Fragment() {
 
@@ -21,7 +23,7 @@ class InfoFragment : Fragment() {
     private lateinit var viewModel: TopViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+            savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.info_fragment, container, false)
     }
 

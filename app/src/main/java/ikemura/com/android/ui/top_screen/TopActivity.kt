@@ -1,13 +1,13 @@
 package ikemura.com.android.ui.top_screen
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import ikemura.com.android.R
 import ikemura.com.android.ui.favorite.FavoriteListFragment
 import ikemura.com.android.ui.info.InfoFragment
-import kotlinx.android.synthetic.main.top_activity.*
+import kotlinx.android.synthetic.main.top_activity.navigation
 
 /**
  * メイン画面

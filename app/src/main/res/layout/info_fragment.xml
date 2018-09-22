@@ -62,9 +62,7 @@
 
         </FrameLayout>
 
-        <include
-            layout="@layout/delimiter"
-            />
+        <include layout="@layout/delimiter" />
 
         <FrameLayout
             android:id="@+id/youtube"
@@ -84,9 +82,7 @@
                 />
         </FrameLayout>
 
-        <include
-            layout="@layout/delimiter"
-            />
+        <include layout="@layout/delimiter" />
 
         <FrameLayout
             android:id="@+id/site"
@@ -106,9 +102,7 @@
                 />
         </FrameLayout>
 
-        <include
-            layout="@layout/delimiter"
-            />
+        <include layout="@layout/delimiter" />
 
         <TextView
             android:layout_width="match_parent"

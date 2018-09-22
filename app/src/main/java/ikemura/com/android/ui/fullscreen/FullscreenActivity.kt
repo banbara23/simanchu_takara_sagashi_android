@@ -3,13 +3,13 @@ package ikemura.com.android.ui.fullscreen
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import androidx.core.app.NavUtils
-import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NavUtils
 import ikemura.com.android.R
 import ikemura.com.android.ui.list.SpotListActivity
-import kotlinx.android.synthetic.main.activity_fullscreen.*
+import kotlinx.android.synthetic.main.activity_fullscreen.full_image
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.

@@ -25,7 +25,7 @@ class SpotListFragment : Fragment(), OnListFragmentInteractionListener {
     private lateinit var viewModel: SpotListViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+            savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.spot_list_fragment, container, false)
     }
 

@@ -1,107 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+<layout>
 
-    <LinearLayout
+    <data />
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/light_gray"
-        android:orientation="vertical"
         >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/main"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            tools:context=".ui.main.main.TopFragment"
+            android:background="@color/light_gray"
+            android:orientation="vertical"
             >
 
-            <!--上部の画像-->
-            <com.flaviofaria.kenburnsview.KenBurnsView
-                android:id="@+id/topImage"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/main"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:src="@drawable/img_04"
-                app:layout_constraintDimensionRatio="1:1"
-                />
-
-            <!--タイトル-->
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/app_name"
-                android:textColor="@color/white"
-                android:textSize="30sp"
+                android:background="@color/white"
+                tools:context=".ui.main.main.TopFragment"
+                >
+
+                <!--上部の画像-->
+                <com.flaviofaria.kenburnsview.KenBurnsView
+                    android:id="@+id/topImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:src="@drawable/img_04"
+                    app:layout_constraintDimensionRatio="1:1"
+                    />
+
+                <!--タイトル-->
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/topImage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.098"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.875"
+                    />
+                <!--説明-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="石垣島の新たな魅力スポットをご紹介します"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/topImage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.153"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.950"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="オススメ"
+                android:textSize="18dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/topImage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.098"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.875"
                 />
-            <!--説明-->
-            <TextView
-                android:layout_width="wrap_content"
+
+            <include
+                android:id="@+id/include_card1"
+                layout="@layout/main_card"
+                />
+
+            <include
+                android:id="@+id/include_card2"
+                layout="@layout/main_card2"
+                />
+
+            <include
+                android:id="@+id/include_card3"
+                layout="@layout/main_card3"
+                />
+
+            <Button
+                android:id="@+id/more"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="石垣島の新たな魅力スポットをご紹介します"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/topImage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.153"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.950"
+                android:layout_margin="8dp"
+                android:background="@color/amber"
+                android:text="@string/main_more"
+                android:textSize="18dp"
+                android:textStyle="bold"
                 />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:text="オススメ"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            />
-
-        <include
-            android:id="@+id/include_card1"
-            layout="@layout/main_card"
-            />
-
-        <include
-            android:id="@+id/include_card2"
-            layout="@layout/main_card2"
-            />
-
-        <include
-            android:id="@+id/include_card3"
-            layout="@layout/main_card3"
-            />
-
-        <Button
-            android:id="@+id/more"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@color/amber"
-            android:text="@string/main_more"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            />
-    </LinearLayout>
-</ScrollView>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+</layout>

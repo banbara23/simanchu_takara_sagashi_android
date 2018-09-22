@@ -15,5 +15,4 @@ class MainApplication : Application() {
     fun getContext(): Context {
         return this
     }
-
 }

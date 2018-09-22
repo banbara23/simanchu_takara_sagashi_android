@@ -18,7 +18,6 @@ class TopViewModel : ViewModel() {
 
     init {
         _data.value = "Hello, Jetpack!"
-
     }
 
     /**

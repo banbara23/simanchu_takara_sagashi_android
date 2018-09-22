@@ -46,7 +46,7 @@ class SpotDetailFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+            savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.spot_detail_fragment, container, false)
     }
 
@@ -119,5 +119,4 @@ class SpotDetailFragment : Fragment() {
      * リポジトリからスポット詳細を取得する
      */
     private fun fetchSpotDetail(spotId: String) = SpotRepository(this.context!!).getSpot(spotId)
-
 }

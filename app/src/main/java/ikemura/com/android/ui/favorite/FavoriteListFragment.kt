@@ -27,7 +27,7 @@ class FavoriteListFragment : Fragment(), OnListFragmentInteractionListener {
     private lateinit var viewModel: FavoriteListViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+            savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.favorite_list_fragment, container, false)
     }
 

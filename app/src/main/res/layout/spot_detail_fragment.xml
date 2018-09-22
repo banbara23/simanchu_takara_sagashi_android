@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -33,21 +33,21 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="スポット詳細"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="スポット詳細"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
                     />
 
                 <ImageView
                     android:id="@+id/favorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_favorite_border_black_24dp"
                     android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_favorite_border_black_24dp"
                     />
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
