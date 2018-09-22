@@ -1,4 +1,4 @@
-package ikemura.com.android.ui.top_screen
+package ikemura.com.android.ui.top
 
 import android.util.Log
 import androidx.lifecycle.LiveData

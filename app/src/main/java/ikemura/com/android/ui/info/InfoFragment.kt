@@ -9,7 +9,7 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import ikemura.com.android.BuildConfig
 import ikemura.com.android.R
-import ikemura.com.android.ui.top_screen.TopViewModel
+import ikemura.com.android.ui.top.TopViewModel
 import kotlinx.android.synthetic.main.info_fragment.site
 import kotlinx.android.synthetic.main.info_fragment.version_name
 import kotlinx.android.synthetic.main.info_fragment.youtube

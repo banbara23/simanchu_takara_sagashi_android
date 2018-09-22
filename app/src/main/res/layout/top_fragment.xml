@@ -9,6 +9,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        tools:context=".ui.top.TopFragment"
         >
 
         <LinearLayout
@@ -23,7 +24,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                tools:context=".ui.main.main.TopFragment"
                 >
 
                 <!--上部の画像-->

@@ -1,4 +1,4 @@
-package ikemura.com.android.ui.top_screen
+package ikemura.com.android.ui.top
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
