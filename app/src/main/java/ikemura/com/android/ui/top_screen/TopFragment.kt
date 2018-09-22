@@ -1,4 +1,4 @@
-package ikemura.com.android.ui.top
+package ikemura.com.android.ui.top_screen
 
 import android.content.Intent
 import android.os.Bundle

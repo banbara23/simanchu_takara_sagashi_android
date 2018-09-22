@@ -1,4 +1,4 @@
-package ikemura.com.android.ui.top
+package ikemura.com.android.ui.top_screen
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView

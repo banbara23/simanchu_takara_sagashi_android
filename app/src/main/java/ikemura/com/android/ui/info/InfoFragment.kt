@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import ikemura.com.android.BuildConfig
 import ikemura.com.android.R
-import ikemura.com.android.ui.top.TopViewModel
+import ikemura.com.android.ui.top_screen.TopViewModel
 import kotlinx.android.synthetic.main.info_fragment.*
 
 class InfoFragment : Fragment() {
