@@ -45,7 +45,7 @@
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/topImage"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.098"
                     app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:text="石垣島の新たな魅力スポットをご紹介します"
                     android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/topImage"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.153"
                     app:layout_constraintStart_toStartOf="parent"
@@ -79,17 +79,17 @@
 
             <include
                 android:id="@+id/include_card1"
-                layout="@layout/main_card"
+                layout="@layout/top_recommend_card"
                 />
 
             <include
                 android:id="@+id/include_card2"
-                layout="@layout/main_card2"
+                layout="@layout/top_recommend_card"
                 />
 
             <include
                 android:id="@+id/include_card3"
-                layout="@layout/main_card3"
+                layout="@layout/top_recommend_card"
                 />
 
             <Button

@@ -50,6 +50,24 @@ class TopFragment : Fragment() {
         val spots = viewModel.getRecommendSpots()
         spots.forEach { Log.d(TAG, "top recommend id:${it.id} name:${it.name}") }
         //todo:オススメ3件を表示設定
+        spots.first().let {
+            //            Picasso.get().load(it.)
+            binding.includeCard1.recommendName.text = it.name
+            binding.includeCard1.recommendPlace.text = it.place
+            binding.includeCard1.recommendLevel.text = it.level
+        }
+        spots[1].let {
+            //            Picasso.get().load(it.)
+            binding.includeCard2.recommendName.text = it.name
+            binding.includeCard2.recommendPlace.text = it.place
+            binding.includeCard2.recommendLevel.text = it.level
+        }
+        spots[2].let {
+            //            Picasso.get().load(it.)
+            binding.includeCard3.recommendName.text = it.name
+            binding.includeCard3.recommendPlace.text = it.place
+            binding.includeCard3.recommendLevel.text = it.level
+        }
     }
 
     override fun onResume() {
