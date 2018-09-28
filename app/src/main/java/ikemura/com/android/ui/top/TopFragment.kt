@@ -6,17 +6,26 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import ikemura.com.android.Constants
 import ikemura.com.android.R
+import ikemura.com.android.databinding.TopFragmentBinding
 import ikemura.com.android.ui.detail.SpotDetailActivity
 import ikemura.com.android.ui.list.SpotListActivity
+import kotlinx.android.synthetic.main.list_item_content.view.level
+import kotlinx.android.synthetic.main.list_item_content.view.place
+import kotlinx.android.synthetic.main.top_recommend_card.view.recommend_image
+import kotlinx.android.synthetic.main.top_recommend_card.view.recommend_level
+import kotlinx.android.synthetic.main.top_recommend_card.view.recommend_name
+import kotlinx.android.synthetic.main.top_recommend_card.view.recommend_place
 import kotlinx.android.synthetic.main.top_fragment.include_card1
 import kotlinx.android.synthetic.main.top_fragment.include_card2
 import kotlinx.android.synthetic.main.top_fragment.include_card3
 import kotlinx.android.synthetic.main.top_fragment.more
 import kotlinx.android.synthetic.main.top_fragment.topImage
+import kotlinx.android.synthetic.main.top_fragment.view.title
 
 class TopFragment : Fragment() {
 
@@ -26,11 +35,13 @@ class TopFragment : Fragment() {
     }
 
     private lateinit var viewModel: TopViewModel
+    private lateinit var binding: TopFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?): View {
         viewModel = ViewModelProviders.of(this).get(TopViewModel::class.java)
-        return inflater.inflate(R.layout.top_fragment, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.top_fragment, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
