@@ -1,11 +1,16 @@
 package ikemura.com.android.repository
 
 import android.content.Context
+import android.util.Log
 import com.google.gson.Gson
 import ikemura.com.android.model.Spot
 import ikemura.com.android.model.Spots
 
 class SpotRepository(val context: Context) {
+    companion object {
+        private const val TAG = "SpotRepository"
+    }
+
     var spots = Spots()
     /**
      * 一覧を取得
@@ -22,6 +27,7 @@ class SpotRepository(val context: Context) {
      * 詳細を取得
      */
     fun getSpot(id: String): Spot {
+        Log.d(TAG, id)
         val response = if (spots.spots.isEmpty()) getSpotList() else spots
         return response.spots.first { it.id == id }
     }
