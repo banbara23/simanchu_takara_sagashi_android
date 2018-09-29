@@ -95,7 +95,7 @@ class SpotDetailFragment : Fragment() {
         data.let {
             detail_title.text = it.name
             detail_level.text = "難易度：${it.level}"
-            detail_place.text = "場所：${it.place}"
+            detail_place.text = "場所：${it.location.first().place}"
             description.text = it.description
         }
     }

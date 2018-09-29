@@ -55,7 +55,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
 //        Picasso.get().load(item.).into(holder.imageView)
         holder.nameView.text = item.name
         holder.levelView.text = item.level
-        holder.placeView.text = item.place
+        holder.placeView.text = item.location.first().place
 
         with(holder.itemView) {
             tag = item
