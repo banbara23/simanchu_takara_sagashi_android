@@ -9,23 +9,17 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.squareup.picasso.Picasso
 import ikemura.com.android.Constants
 import ikemura.com.android.R
 import ikemura.com.android.databinding.TopFragmentBinding
 import ikemura.com.android.ui.detail.SpotDetailActivity
 import ikemura.com.android.ui.list.SpotListActivity
-import kotlinx.android.synthetic.main.list_item_content.view.level
-import kotlinx.android.synthetic.main.list_item_content.view.place
-import kotlinx.android.synthetic.main.top_recommend_card.view.recommend_image
-import kotlinx.android.synthetic.main.top_recommend_card.view.recommend_level
-import kotlinx.android.synthetic.main.top_recommend_card.view.recommend_name
-import kotlinx.android.synthetic.main.top_recommend_card.view.recommend_place
 import kotlinx.android.synthetic.main.top_fragment.include_card1
 import kotlinx.android.synthetic.main.top_fragment.include_card2
 import kotlinx.android.synthetic.main.top_fragment.include_card3
 import kotlinx.android.synthetic.main.top_fragment.more
 import kotlinx.android.synthetic.main.top_fragment.topImage
-import kotlinx.android.synthetic.main.top_fragment.view.title
 
 class TopFragment : Fragment() {
 
@@ -62,7 +56,10 @@ class TopFragment : Fragment() {
         spots.forEach { Log.d(TAG, "top recommend id:${it.id} name:${it.name}") }
         //todo:オススメ3件を表示設定
         spots.first().let {
-            //            Picasso.get().load(it.)
+            Picasso.get()
+                    .load("https://mbaas.api.nifcloud.com/2013-09-01/applications/vZwusNeWZ3lS2PjO/publicFiles/24_thumb.JPG")
+                    .into(binding.includeCard1.recommendImage)
+
             binding.includeCard1.recommendName.text = it.name
             binding.includeCard1.recommendPlace.text = it.place
             binding.includeCard1.recommendLevel.text = it.level
