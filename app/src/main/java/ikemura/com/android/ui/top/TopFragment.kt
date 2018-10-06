@@ -62,19 +62,19 @@ class TopFragment : Fragment() {
 
             binding.includeCard1.recommendName.text = it.name
             binding.includeCard1.recommendPlace.text = it.location.first().place
-            binding.includeCard1.recommendLevel.text = it.level
+//            binding.includeCard1.recommendLevel.text = it.level
         }
         spots[1].let {
             //            Picasso.get().load(it.)
             binding.includeCard2.recommendName.text = it.name
             binding.includeCard2.recommendPlace.text = it.location.first().place
-            binding.includeCard2.recommendLevel.text = it.level
+//            binding.includeCard2.recommendLevel.text = it.level
         }
         spots[2].let {
             //            Picasso.get().load(it.)
             binding.includeCard3.recommendName.text = it.name
             binding.includeCard3.recommendPlace.text = it.location.first().place
-            binding.includeCard3.recommendLevel.text = it.level
+//            binding.includeCard3.recommendLevel.text = it.level
         }
     }
 

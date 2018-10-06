@@ -80,6 +80,7 @@
             <include
                 android:id="@+id/include_card1"
                 layout="@layout/top_recommend_card"
+
                 />
 
             <include

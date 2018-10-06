@@ -7,7 +7,7 @@ data class Spot(
         val id: String = "",
         val name: String = "",
         val description: String = "",
-        val level: String = "",
+        val level: Int = 0,
         val address: String = "",
         val location: List<Location> = listOf(),
         val image: String = "",
