@@ -43,8 +43,8 @@ class TopViewModel : ViewModel() {
         return recommendSpots
     }
 
-    fun getTopImage(): Spot {
+    fun getTopImage(): String {
         val id = (1..22).random()
-        return spotRepository.getSpot(id.toString())
+        return spotRepository.getSpot(id.toString()).image
     }
 }

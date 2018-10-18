@@ -31,8 +31,8 @@
                     android:id="@+id/topImage"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:src="@drawable/img_04"
                     app:layout_constraintDimensionRatio="1:1"
+                    tools:src="@drawable/img_04"
                     />
 
                 <!--タイトル-->

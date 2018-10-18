@@ -46,9 +46,8 @@ class TopFragment : Fragment() {
     }
 
     private fun setupTopImage() {
-        val spot = viewModel.getTopImage()
-        //todo:画像urlをPicassoで表示
-//        Picasso.get().load(spot.url).into()
+        val url = viewModel.getTopImage()
+        Picasso.get().load(url).into(binding.topImage)
     }
 
     private fun setupRecommendSpots() {
