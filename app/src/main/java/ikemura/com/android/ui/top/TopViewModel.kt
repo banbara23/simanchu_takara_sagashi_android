@@ -31,11 +31,11 @@ class TopViewModel : ViewModel() {
         // オススメSpotが3件になるまでループ
         while (recommendSpots.size < 3) {
             //ランダムで0〜21のInt
-            var id = (0..21).random()
+            var id = (1..22).random()
             //ランダムIntが既に入ってるか？
             while ((recommendSpots.filter { it.id == id.toString() }).isNotEmpty()) {
                 //既に入ってたのでランダムIntを再取得
-                id = (0..21).random()
+                id = (1..22).random()
             }
             // オススメSpotに追加
             recommendSpots += spotRepository.getSpot(id.toString())
@@ -44,7 +44,7 @@ class TopViewModel : ViewModel() {
     }
 
     fun getTopImage(): Spot {
-        val id = (0..21).random()
+        val id = (1..22).random()
         return spotRepository.getSpot(id.toString())
     }
 }
