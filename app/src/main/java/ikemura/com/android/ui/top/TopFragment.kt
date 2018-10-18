@@ -57,7 +57,7 @@ class TopFragment : Fragment() {
         //todo:オススメ3件を表示設定
         spots.first().let {
             Picasso.get()
-                    .load("https://mbaas.api.nifcloud.com/2013-09-01/applications/vZwusNeWZ3lS2PjO/publicFiles/24_thumb.JPG")
+                    .load(it.thumbnail)
                     .into(binding.includeCard1.recommendImage)
 
             binding.includeCard1.recommendName.text = it.name
@@ -65,13 +65,17 @@ class TopFragment : Fragment() {
 //            binding.includeCard1.recommendLevel.text = it.level
         }
         spots[1].let {
-            //            Picasso.get().load(it.)
+            Picasso.get()
+                    .load(it.thumbnail)
+                    .into(binding.includeCard2.recommendImage)
             binding.includeCard2.recommendName.text = it.name
             binding.includeCard2.recommendPlace.text = it.location.first().place
 //            binding.includeCard2.recommendLevel.text = it.level
         }
         spots[2].let {
-            //            Picasso.get().load(it.)
+            Picasso.get()
+                    .load(it.thumbnail)
+                    .into(binding.includeCard3.recommendImage)
             binding.includeCard3.recommendName.text = it.name
             binding.includeCard3.recommendPlace.text = it.location.first().place
 //            binding.includeCard3.recommendLevel.text = it.level
