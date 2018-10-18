@@ -10,14 +10,9 @@ import ikemura.com.android.random
 import ikemura.com.android.repository.SpotRepository
 
 class TopViewModel : ViewModel() {
-    private val _data = MutableLiveData<String>()
     private var spotRepository: SpotRepository = SpotRepository(AppEnv.instance.mainApplication)
-    private val TAG = this::class.java.simpleName
-    val data: LiveData<String>
-        get() = _data
-
-    init {
-        _data.value = "Hello, Jetpack!"
+    companion object {
+        private val TAG = this::class.java.simpleName
     }
 
     /**
@@ -30,7 +25,7 @@ class TopViewModel : ViewModel() {
         Log.d(TAG, "件数:${spots.size}")
         // オススメSpotが3件になるまでループ
         while (recommendSpots.size < 3) {
-            //ランダムで0〜21のInt
+            //ランダムで1〜22のInt
             var id = (1..22).random()
             //ランダムIntが既に入ってるか？
             while ((recommendSpots.filter { it.id == id.toString() }).isNotEmpty()) {
@@ -43,7 +38,7 @@ class TopViewModel : ViewModel() {
         return recommendSpots
     }
 
-    fun getTopImage(): String {
+    fun getRandamSpotImage(): String {
         val id = (1..22).random()
         return spotRepository.getSpot(id.toString()).image
     }

@@ -40,20 +40,36 @@ class TopFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        //トップ画面の各初期処理
         setupEvent()
         setupTopImage()
         setupRecommendSpots()
     }
 
+    override fun onResume() {
+        super.onResume()
+        topImage.resume()   //上部の動く画像の再開
+    }
+
+    override fun onPause() {
+        super.onPause()
+        topImage.pause()   //上部の動く画像の停止
+    }
+
+    /**
+     * 上部の動く画像の設定
+     */
     private fun setupTopImage() {
-        val url = viewModel.getTopImage()
+        val url = viewModel.getRandamSpotImage()
         Picasso.get().load(url).into(binding.topImage)
     }
 
+    /**
+     * ３件のオススメスポット設定
+     */
     private fun setupRecommendSpots() {
         val spots = viewModel.getRecommendSpots()
         spots.forEach { Log.d(TAG, "top recommend id:${it.id} name:${it.name}") }
-        //todo:オススメ3件を表示設定
         spots.first().let {
             Picasso.get()
                     .load(it.thumbnail)
@@ -81,16 +97,9 @@ class TopFragment : Fragment() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        topImage.resume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        topImage.pause()
-    }
-
+    /**
+     * イベント設定
+     */
     private fun setupEvent() {
         include_card1.setOnClickListener {
             navigateToDetail()
@@ -106,12 +115,18 @@ class TopFragment : Fragment() {
         }
     }
 
+    /**
+     * オススメのスポット詳細に遷移
+     */
     private fun navigateToDetail() {
         val intent = Intent(activity, SpotDetailActivity::class.java)
         intent.putExtra(Constants.ARG_ITEM_ID, "1")
         startActivity(intent)
     }
 
+    /**
+     * スポット一覧に遷移
+     */
     private fun navigateToList() {
         startActivity(Intent(activity, SpotListActivity::class.java))
     }
