@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import ikemura.com.android.Constants
 import ikemura.com.android.R
+import ikemura.com.android.helper.LevelViewHelper
 import ikemura.com.android.model.Spot
 import ikemura.com.android.ui.detail.SpotDetailFragment
 import kotlinx.android.synthetic.main.list_item_content.view.image
@@ -55,7 +56,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
         val item = spots!![position]
         Picasso.get().load(item.thumbnail).into(holder.imageView)
         holder.nameView.text = item.name
-//        holder.levelView.text = item.level
+        LevelViewHelper.setLevelTextView(parentActivity, item.level, holder.levelView)
         holder.placeView.text = item.location.first().place
 
         with(holder.itemView) {
