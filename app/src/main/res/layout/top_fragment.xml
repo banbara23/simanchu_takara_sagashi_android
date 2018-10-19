@@ -76,7 +76,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:text="オススメ"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 />
 
@@ -103,7 +103,7 @@
                 android:layout_margin="8dp"
                 android:background="@color/amber"
                 android:text="@string/main_more"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 />
 
