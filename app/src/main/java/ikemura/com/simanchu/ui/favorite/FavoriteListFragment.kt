@@ -60,9 +60,9 @@ class FavoriteListFragment : Fragment(), OnListFragmentInteractionListener {
         adapter.replaceAll(spots)
     }
 
-    override fun onListFragmentInteraction(item: Spot) {
+    override fun onListFragmentInteraction(spot: Spot) {
         val intent = Intent(activity, SpotDetailActivity::class.java)
-        intent.putExtra(Constants.ARG_ITEM_ID, item.id)
+        intent.putExtra(Constants.ARG_SPOT, spot)
         activity?.startActivity(intent)
     }
 }

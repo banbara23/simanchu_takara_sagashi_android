@@ -20,14 +20,6 @@ class SpotDetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (savedInstanceState == null) {
-//            val fragment = SpotDetailFragment.newInstance(intent.extras).apply {
-//
-////                arguments = Bundle().apply {
-////                    putString(Constants.ARG_ITEM_ID,
-////                            intent.getStringExtra(Constants.ARG_ITEM_ID))
-////                }
-//            }
-
             supportFragmentManager.beginTransaction()
                     .replace(R.id.activity_detail_container, SpotDetailFragment.newInstance(intent.extras))
                     .commit()

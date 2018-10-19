@@ -15,7 +15,6 @@ import ikemura.com.simanchu.Constants
 import ikemura.com.simanchu.R
 import ikemura.com.simanchu.helper.LevelViewHelper
 import ikemura.com.simanchu.model.Spot
-import ikemura.com.simanchu.repository.SpotRepository
 import ikemura.com.simanchu.ui.fullscreen.FullscreenActivity
 import kotlinx.android.synthetic.main.spot_detail_fragment.description
 import kotlinx.android.synthetic.main.spot_detail_fragment.detail_image
@@ -31,30 +30,15 @@ import kotlinx.android.synthetic.main.spot_detail_fragment.favorite
 class SpotDetailFragment : Fragment() {
 
     private lateinit var viewModel: SpotDetailViewModel
-    private lateinit var spotId: String
     private var isFavorite = false
-    private var spot: Spot? = null
     private val TAG: String = SpotDetailFragment::class.java.simpleName
+    private var spot: Spot? = null
+        get() = arguments?.getParcelable(Constants.ARG_SPOT)
 
     companion object {
         fun newInstance(args: Bundle?): SpotDetailFragment {
             return SpotDetailFragment().apply {
                 arguments = args
-            }
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        arguments?.let {
-            if (it.containsKey(Constants.ARG_ITEM_ID)) {
-                spotId = it.getString(Constants.ARG_ITEM_ID, "")
-                Log.d(TAG, "spotId=$spotId")
-            }
-            if (it.containsKey(Constants.ARG_SPOT)) {
-                spot = it.getParcelable(Constants.ARG_SPOT)
-                Log.d(TAG, "spot=$spot")
             }
         }
     }
@@ -85,11 +69,11 @@ class SpotDetailFragment : Fragment() {
             isFavorite = !isFavorite
             val status: String
             val drawable = if (isFavorite) {
-                viewModel.addFavorite(spotId)
+                viewModel.addFavorite(spot!!.id)
                 status = "登録"
                 R.drawable.ic_favorite_black_24dp
             } else {
-                viewModel.removeFavorite(spotId)
+                viewModel.removeFavorite(spot!!.id)
                 status = "解除"
                 R.drawable.ic_favorite_border_black_24dp
             }
@@ -103,10 +87,8 @@ class SpotDetailFragment : Fragment() {
 
     private fun setupViewModel() {
         viewModel = ViewModelProviders.of(this).get(SpotDetailViewModel::class.java)
-        val data = fetchSpotDetail(spotId)
-
         // 詳細データが取得できたら
-        data.let {
+        spot?.let {
             Picasso.get().load(it.image).into(detail_image)
             detail_title.text = it.name
             LevelViewHelper.setLevelTextView(requireContext(), it.level, detail_level)
@@ -119,19 +101,14 @@ class SpotDetailFragment : Fragment() {
      * お気に入り表示設定
      */
     private fun setupFavorite() {
-        isFavorite = viewModel.isFavorite(spotId)
+        isFavorite = viewModel.isFavorite(spot!!.id)
         val drawable = if (isFavorite) {
-            viewModel.addFavorite(spotId)
+            viewModel.addFavorite(spot!!.id)
             R.drawable.ic_favorite_black_24dp
         } else {
-            viewModel.removeFavorite(spotId)
+            viewModel.removeFavorite(spot!!.id)
             R.drawable.ic_favorite_border_black_24dp
         }
         favorite.setImageDrawable(ContextCompat.getDrawable(context!!, drawable))
     }
-
-    /**
-     * リポジトリからスポット詳細を取得する
-     */
-    private fun fetchSpotDetail(spotId: String) = SpotRepository(this.context!!).getSpot(spotId)
 }

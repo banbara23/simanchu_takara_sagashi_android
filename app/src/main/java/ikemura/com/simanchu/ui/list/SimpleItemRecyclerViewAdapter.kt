@@ -31,11 +31,10 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
         onClickListener = View.OnClickListener { v ->
             val spot = v.tag as Spot
             if (twoPane) {
-                val fragment = SpotDetailFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(Constants.ARG_ITEM_ID, spot.id)
-                    }
+                val arguments = Bundle().apply {
+                    putParcelable(Constants.ARG_SPOT, spot)
                 }
+                val fragment = SpotDetailFragment.newInstance(arguments)
                 parentActivity.supportFragmentManager
                         .beginTransaction()
                         .replace(R.id.item_detail_container, fragment)

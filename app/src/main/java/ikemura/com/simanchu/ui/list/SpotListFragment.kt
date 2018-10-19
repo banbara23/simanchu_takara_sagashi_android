@@ -56,7 +56,7 @@ class SpotListFragment : Fragment(), OnListFragmentInteractionListener {
 
     override fun onListFragmentInteraction(item: Spot) {
         val intent = Intent(activity, SpotDetailActivity::class.java)
-        intent.putExtra(Constants.ARG_ITEM_ID, item.id)
+        intent.putExtra(Constants.ARG_SPOT, item)
         activity?.startActivity(intent)
     }
 }

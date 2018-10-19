@@ -127,7 +127,6 @@ class TopFragment : Fragment() {
      */
     private fun navigateToDetail(spot: Spot) {
         val intent = Intent(activity, SpotDetailActivity::class.java)
-        intent.putExtra(Constants.ARG_ITEM_ID, spot.id)
         intent.putExtra(Constants.ARG_SPOT, spot)
 
         startActivity(intent)
