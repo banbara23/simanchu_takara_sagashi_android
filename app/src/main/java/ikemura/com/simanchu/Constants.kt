@@ -3,8 +3,7 @@ package ikemura.com.simanchu
 /**
  * Static
  */
-class Constants {
-    companion object {
-        const val ARG_ITEM_ID = "ARG_ITEM_ID"
-    }
+object Constants {
+    const val ARG_ITEM_ID = "ARG_ITEM_ID"
+    const val ARG_SPOT = "ARG_SPOT"
 }

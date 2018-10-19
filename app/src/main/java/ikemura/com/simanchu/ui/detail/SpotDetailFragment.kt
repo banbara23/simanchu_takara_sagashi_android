@@ -36,6 +36,14 @@ class SpotDetailFragment : Fragment() {
     private var spot: Spot? = null
     private val TAG: String = SpotDetailFragment::class.java.simpleName
 
+    companion object {
+        fun newInstance(args: Bundle?): SpotDetailFragment {
+            return SpotDetailFragment().apply {
+                arguments = args
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -43,6 +51,10 @@ class SpotDetailFragment : Fragment() {
             if (it.containsKey(Constants.ARG_ITEM_ID)) {
                 spotId = it.getString(Constants.ARG_ITEM_ID, "")
                 Log.d(TAG, "spotId=$spotId")
+            }
+            if (it.containsKey(Constants.ARG_SPOT)) {
+                spot = it.getParcelable(Constants.ARG_SPOT)
+                Log.d(TAG, "spot=$spot")
             }
         }
     }

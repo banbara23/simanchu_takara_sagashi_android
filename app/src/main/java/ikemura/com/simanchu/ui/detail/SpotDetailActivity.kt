@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
-import ikemura.com.simanchu.Constants
 import ikemura.com.simanchu.R
 import ikemura.com.simanchu.ui.list.SpotListActivity
 
@@ -21,15 +20,16 @@ class SpotDetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (savedInstanceState == null) {
-            val fragment = SpotDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(Constants.ARG_ITEM_ID,
-                            intent.getStringExtra(Constants.ARG_ITEM_ID))
-                }
-            }
+//            val fragment = SpotDetailFragment.newInstance(intent.extras).apply {
+//
+////                arguments = Bundle().apply {
+////                    putString(Constants.ARG_ITEM_ID,
+////                            intent.getStringExtra(Constants.ARG_ITEM_ID))
+////                }
+//            }
 
             supportFragmentManager.beginTransaction()
-                    .add(R.id.activity_detail_container, fragment)
+                    .replace(R.id.activity_detail_container, SpotDetailFragment.newInstance(intent.extras))
                     .commit()
         }
     }
