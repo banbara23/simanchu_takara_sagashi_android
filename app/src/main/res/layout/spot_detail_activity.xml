@@ -9,37 +9,6 @@
     tools:context=".ui.detail.SpotDetailActivity"
     >
 
-    <!--<com.google.android.material.appbar.AppBarLayout-->
-    <!--android:id="@+id/app_bar"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:theme="@style/AppTheme.AppBarOverlay"-->
-    <!--&gt;-->
-
-    <!--<androidx.appcompat.widget.Toolbar-->
-    <!--android:id="@+id/detail_toolbar"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--&gt;-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginEnd="16dp"-->
-    <!--android:layout_marginRight="16dp"-->
-    <!--android:gravity="end"-->
-    <!--&gt;-->
-
-    <!--<ImageView-->
-    <!--android:id="@+id/favorite"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--app:srcCompat="@drawable/ic_favorite_border_black_24dp"-->
-    <!--/>-->
-    <!--</LinearLayout>-->
-    <!--</androidx.appcompat.widget.Toolbar>-->
-    <!--</com.google.android.material.appbar.AppBarLayout>-->
-
     <FrameLayout
         android:id="@+id/activity_detail_container"
         android:layout_width="match_parent"

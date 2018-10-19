@@ -10,12 +10,6 @@ import kotlinx.android.synthetic.main.spot_list_activity.toolbar
 
 class SpotListActivity : AppCompatActivity() {
 
-    /**
-     * Whether or not the activity is in two-pane mode, i.e. running on a tablet
-     * device.
-     */
-//    private var twoPane: Boolean = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.spot_list_activity)
@@ -23,10 +17,6 @@ class SpotListActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.title = title
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-//        if (item_detail_container != null) {
-//            twoPane = true
-//        }
         if (savedInstanceState == null) {
             setupFragment()
         }
