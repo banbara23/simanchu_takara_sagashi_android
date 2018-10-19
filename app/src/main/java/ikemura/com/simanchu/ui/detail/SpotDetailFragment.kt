@@ -13,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import ikemura.com.simanchu.Constants
 import ikemura.com.simanchu.R
+import ikemura.com.simanchu.helper.LevelViewHelper
 import ikemura.com.simanchu.model.Spot
 import ikemura.com.simanchu.repository.SpotRepository
 import ikemura.com.simanchu.ui.fullscreen.FullscreenActivity
@@ -96,7 +97,7 @@ class SpotDetailFragment : Fragment() {
         data.let {
             Picasso.get().load(it.image).into(detail_image)
             detail_title.text = it.name
-            detail_level.text = "難易度：${it.level}"
+            LevelViewHelper.setLevelTextView(requireContext(), it.level, detail_level)
             detail_place.text = "場所：${it.location.first().place}"
             description.text = it.description
         }

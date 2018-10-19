@@ -83,28 +83,45 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="タイトル"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold"
+                tools:text="タイトル"
                 />
 
-            <TextView
-                android:id="@+id/detail_level"
-                style="?android:attr/textAppearanceMedium"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="難易度：４"
-                />
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    style="?android:attr/textAppearanceMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="難易度："
+                    />
+
+                <TextView
+                    android:id="@+id/detail_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="4dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="4"
+                    />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/detail_place"
                 style="?android:attr/textAppearanceMedium"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="16dp"
