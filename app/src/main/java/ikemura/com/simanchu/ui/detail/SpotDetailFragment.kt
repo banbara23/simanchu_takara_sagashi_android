@@ -62,7 +62,7 @@ class SpotDetailFragment : Fragment() {
         }
         // 画像タップで全画面
         detail_image.setOnClickListener {
-            startActivity(Intent(this.activity!!, FullscreenActivity::class.java))
+            startActivity(Intent(requireActivity(), FullscreenActivity::class.java))
         }
         // お気に入りタップ
         favorite.setOnClickListener { view ->
@@ -78,7 +78,7 @@ class SpotDetailFragment : Fragment() {
                 R.drawable.ic_favorite_border_black_24dp
             }
 
-            favorite.setImageDrawable(ContextCompat.getDrawable(context!!, drawable))
+            favorite.setImageDrawable(ContextCompat.getDrawable(requireContext(), drawable))
 
             Snackbar.make(view, "お気に入りを${status}しました", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show()
@@ -109,6 +109,6 @@ class SpotDetailFragment : Fragment() {
             viewModel.removeFavorite(spot!!.id)
             R.drawable.ic_favorite_border_black_24dp
         }
-        favorite.setImageDrawable(ContextCompat.getDrawable(context!!, drawable))
+        favorite.setImageDrawable(ContextCompat.getDrawable(requireContext(), drawable))
     }
 }

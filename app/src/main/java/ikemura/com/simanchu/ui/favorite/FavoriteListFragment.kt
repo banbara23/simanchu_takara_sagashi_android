@@ -52,7 +52,7 @@ class FavoriteListFragment : Fragment(), OnListFragmentInteractionListener {
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
         listener = this
-        recyclerView.adapter = SimpleItemRecyclerViewAdapter(activity!!, viewModel.spots.value, false, listener)
+        recyclerView.adapter = SimpleItemRecyclerViewAdapter(requireActivity(), viewModel.spots.value, false, listener)
     }
 
     private fun setToAdapter(spots: List<Spot>) {

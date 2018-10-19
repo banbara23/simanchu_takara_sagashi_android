@@ -20,8 +20,6 @@ class InfoFragment : Fragment() {
         fun newInstance() = InfoFragment()
     }
 
-    private lateinit var viewModel: TopViewModel
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.info_fragment, container, false)
@@ -32,10 +30,9 @@ class InfoFragment : Fragment() {
 
         version_name.text = "Version ${BuildConfig.VERSION_NAME}"
 
-        youtube.setOnClickListener({
+        youtube.setOnClickListener {
             startCustomTab("https://youtu.be/VBWG-vBVFEY")
-
-        })
+        }
         site.setOnClickListener {
             startCustomTab("http://www.city.ishigaki.okinawa.jp/matome/shima.html")
         }
