@@ -1,13 +1,11 @@
 package ikemura.com.android.ui.top
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -16,6 +14,7 @@ import ikemura.com.android.Constants
 import ikemura.com.android.R
 import ikemura.com.android.databinding.TopFragmentBinding
 import ikemura.com.android.helper.LevelViewHelper.setLevelTextView
+import ikemura.com.android.model.Spot
 import ikemura.com.android.ui.detail.SpotDetailActivity
 import ikemura.com.android.ui.list.SpotListActivity
 import kotlinx.android.synthetic.main.top_fragment.include_card1
@@ -33,6 +32,7 @@ class TopFragment : Fragment() {
 
     private lateinit var viewModel: TopViewModel
     private lateinit var binding: TopFragmentBinding
+    private lateinit var spots: List<Spot>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?): View {
@@ -71,7 +71,10 @@ class TopFragment : Fragment() {
      * ３件のオススメスポット設定
      */
     private fun setupRecommendSpots() {
-        val spots = viewModel.getRecommendSpots()
+        spots = viewModel.getRecommendSpots()
+        if (spots.isEmpty()) {
+            return
+        }
         spots.forEach { Log.d(TAG, "top recommend id:${it.id} name:${it.name}") }
         spots.first().let {
             Picasso.get()
@@ -106,13 +109,13 @@ class TopFragment : Fragment() {
      */
     private fun setupEvent() {
         include_card1.setOnClickListener {
-            navigateToDetail()
+            navigateToDetail(spots[0])
         }
         include_card2.setOnClickListener {
-            navigateToDetail()
+            navigateToDetail(spots[1])
         }
         include_card3.setOnClickListener {
-            navigateToDetail()
+            navigateToDetail(spots[2])
         }
         more.setOnClickListener {
             navigateToList()
@@ -122,9 +125,9 @@ class TopFragment : Fragment() {
     /**
      * オススメのスポット詳細に遷移
      */
-    private fun navigateToDetail() {
+    private fun navigateToDetail(spot: Spot) {
         val intent = Intent(activity, SpotDetailActivity::class.java)
-        intent.putExtra(Constants.ARG_ITEM_ID, "1")
+        intent.putExtra(Constants.ARG_ITEM_ID, spot.id)
         startActivity(intent)
     }
 

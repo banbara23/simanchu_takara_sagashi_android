@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import ikemura.com.android.Constants
 import ikemura.com.android.R
 import ikemura.com.android.model.Spot
@@ -93,6 +94,7 @@ class SpotDetailFragment : Fragment() {
 
         // 詳細データが取得できたら
         data.let {
+            Picasso.get().load(it.image).into(detail_image)
             detail_title.text = it.name
             detail_level.text = "難易度：${it.level}"
             detail_place.text = "場所：${it.location.first().place}"
