@@ -1,11 +1,14 @@
 package ikemura.com.android.ui.top
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -77,7 +80,7 @@ class TopFragment : Fragment() {
 
             binding.includeCard1.recommendName.text = it.name
             binding.includeCard1.recommendPlace.text = it.location.first().place
-//            binding.includeCard1.recommendLevel.text = it.level
+            setLevelTextView(it.level, binding.includeCard1.recommendLevel)
         }
         spots[1].let {
             Picasso.get()
@@ -85,7 +88,7 @@ class TopFragment : Fragment() {
                     .into(binding.includeCard2.recommendImage)
             binding.includeCard2.recommendName.text = it.name
             binding.includeCard2.recommendPlace.text = it.location.first().place
-//            binding.includeCard2.recommendLevel.text = it.level
+            setLevelTextView(it.level, binding.includeCard2.recommendLevel)
         }
         spots[2].let {
             Picasso.get()
@@ -93,7 +96,27 @@ class TopFragment : Fragment() {
                     .into(binding.includeCard3.recommendImage)
             binding.includeCard3.recommendName.text = it.name
             binding.includeCard3.recommendPlace.text = it.location.first().place
-//            binding.includeCard3.recommendLevel.text = it.level
+            setLevelTextView(it.level, binding.includeCard3.recommendLevel)
+        }
+    }
+
+    fun setLevelTextView(level: Int, textView: TextView) {
+        //値セット
+        textView.text = level.toString()
+        //色セット
+        textView.setTextColor(getLevelTextColor(requireContext(), level))
+    }
+
+    private fun getLevelTextColor(context: Context, level: Int): Int {
+        return when (level) {
+            1 -> ContextCompat.getColor(context, R.color.level_1)
+            2 -> ContextCompat.getColor(context, R.color.level_2)
+            3 -> ContextCompat.getColor(context, R.color.level_3)
+            4 -> ContextCompat.getColor(context, R.color.level_4)
+            5 -> ContextCompat.getColor(context, R.color.level_5)
+            else -> {
+                R.color.black
+            }
         }
     }
 
