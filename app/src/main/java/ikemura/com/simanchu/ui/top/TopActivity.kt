@@ -14,16 +14,16 @@ import kotlinx.android.synthetic.main.top_activity.navigation
  * メイン画面
  */
 class TopActivity : AppCompatActivity() {
-    private var selectedMenuItem: MenuItem? = null
+    private var selectedMenuItem = R.id.navigation_home
 
     //ボトムメニューの選択リスナー
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         //選択中のボトムアイテムを再選択したら画面を切り替えない
-        if (selectedMenuItem == item) {
+        if (selectedMenuItem == item.itemId) {
             return@OnNavigationItemSelectedListener false
         }
         //違うボトムアイテムを選択された時
-        selectedMenuItem = item
+        selectedMenuItem = item.itemId
         when (item.itemId) {
             R.id.navigation_home -> {
                 //ホーム
