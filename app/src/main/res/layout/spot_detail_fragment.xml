@@ -72,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_bar_height"
                 android:scaleType="centerCrop"
+                android:transitionName="spot"
                 android:src="@drawable/img_04"
                 />
 

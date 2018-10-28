@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
+                android:transitionName="spot"
                 tools:src="@drawable/img_04"
                 />
 
@@ -52,8 +53,8 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp"
-                    android:textSize="15sp"
                     android:text="難易度"
+                    android:textSize="15sp"
                     />
 
                 <TextView

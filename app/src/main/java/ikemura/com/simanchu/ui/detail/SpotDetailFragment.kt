@@ -2,10 +2,10 @@ package ikemura.com.simanchu.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -58,7 +58,10 @@ class SpotDetailFragment : Fragment() {
     private fun setupClickClick() {
         // toolbarの戻るボタン
         detail_toolbar.setNavigationOnClickListener {
-            activity?.finish()
+            //            activity?.supportPostponeEnterTransition()
+            activity?.run {
+                ActivityCompat.finishAfterTransition(this)
+            }
         }
         // 画像タップで全画面
         detail_image.setOnClickListener {

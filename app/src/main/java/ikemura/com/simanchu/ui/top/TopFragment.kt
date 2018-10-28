@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -109,13 +111,13 @@ class TopFragment : Fragment() {
      */
     private fun setupEvent() {
         include_card1.setOnClickListener {
-            navigateToDetail(spots[0])
+            navigateToDetail(spots[0], binding.includeCard1.recommendImage)
         }
         include_card2.setOnClickListener {
-            navigateToDetail(spots[1])
+            navigateToDetail(spots[1], binding.includeCard2.recommendImage)
         }
         include_card3.setOnClickListener {
-            navigateToDetail(spots[2])
+            navigateToDetail(spots[2], binding.includeCard3.recommendImage)
         }
         more.setOnClickListener {
             navigateToList()
@@ -125,11 +127,12 @@ class TopFragment : Fragment() {
     /**
      * オススメのスポット詳細に遷移
      */
-    private fun navigateToDetail(spot: Spot) {
+    private fun navigateToDetail(spot: Spot, imageView: View) {
         val intent = Intent(activity, SpotDetailActivity::class.java)
         intent.putExtra(Constants.ARG_SPOT, spot)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), imageView, "spot")
 
-        startActivity(intent)
+        startActivity(intent, options.toBundle())
     }
 
     /**

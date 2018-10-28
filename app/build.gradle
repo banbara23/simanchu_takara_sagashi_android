@@ -8,7 +8,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "ikemura.com.simanchu_takara_sagashi_android"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 5
         versionName "0.5"
