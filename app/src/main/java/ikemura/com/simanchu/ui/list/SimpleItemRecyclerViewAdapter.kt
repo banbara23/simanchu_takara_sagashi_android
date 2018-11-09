@@ -60,7 +60,10 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
 
         with(holder.itemView) {
             tag = item
-            setOnClickListener(onClickListener)
+//            setOnClickListener(onClickListener)
+            setOnClickListener {
+                listener?.onListFragmentInteraction(item)
+            }
         }
     }
 

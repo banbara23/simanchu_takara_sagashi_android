@@ -57,6 +57,7 @@ class SpotListFragment : Fragment(), OnListFragmentInteractionListener {
     override fun onListFragmentInteraction(item: Spot) {
         val intent = Intent(activity, SpotDetailActivity::class.java)
         intent.putExtra(Constants.ARG_SPOT, item)
+//        var options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity!!,)
         activity?.startActivity(intent)
     }
 }

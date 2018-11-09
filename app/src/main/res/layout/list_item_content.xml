@@ -23,6 +23,7 @@
             android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:src="@drawable/img_04"
+            android:transitionName="spot"
             />
 
         <TextView
