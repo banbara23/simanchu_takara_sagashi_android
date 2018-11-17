@@ -14,9 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity
-            android:name="ikemura.com.simanchu.ui.top.TopActivity"
-            >
+        <activity android:name="ikemura.com.simanchu.ui.top.TopActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />

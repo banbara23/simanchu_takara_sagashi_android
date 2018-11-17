@@ -9,6 +9,7 @@ import ikemura.com.simanchu.repository.SpotRepository
 
 class TopViewModel : ViewModel() {
     private var spotRepository: SpotRepository = SpotRepository(AppEnv.instance.mainApplication)
+
     companion object {
         private val TAG = this::class.java.simpleName
     }
