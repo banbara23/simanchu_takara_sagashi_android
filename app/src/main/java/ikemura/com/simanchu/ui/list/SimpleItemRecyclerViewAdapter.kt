@@ -40,7 +40,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
                         .replace(R.id.item_detail_container, fragment)
                         .commit()
             } else {
-                listener?.onListFragmentInteraction(spot)
+                listener?.onListFragmentInteraction(spot, v)
             }
         }
     }
@@ -62,7 +62,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
             tag = item
 //            setOnClickListener(onClickListener)
             setOnClickListener {
-                listener?.onListFragmentInteraction(item)
+                listener?.onListFragmentInteraction(item,holder.imageView)
             }
         }
     }

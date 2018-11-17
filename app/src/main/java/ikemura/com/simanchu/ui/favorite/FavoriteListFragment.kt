@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -60,9 +61,10 @@ class FavoriteListFragment : Fragment(), OnListFragmentInteractionListener {
         adapter.replaceAll(spots)
     }
 
-    override fun onListFragmentInteraction(spot: Spot) {
+    override fun onListFragmentInteraction(spot: Spot, view: View) {
         val intent = Intent(activity, SpotDetailActivity::class.java)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, "spot")
         intent.putExtra(Constants.ARG_SPOT, spot)
-        activity?.startActivity(intent)
+        activity?.startActivity(intent, options.toBundle())
     }
 }

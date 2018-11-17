@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -54,14 +56,14 @@ class SpotListFragment : Fragment(), OnListFragmentInteractionListener {
         adapter.replaceAll(spots)
     }
 
-    override fun onListFragmentInteraction(item: Spot) {
+    override fun onListFragmentInteraction(item: Spot, view: View) {
         val intent = Intent(activity, SpotDetailActivity::class.java)
         intent.putExtra(Constants.ARG_SPOT, item)
-//        var options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity!!,)
-        activity?.startActivity(intent)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, "spot")
+        activity?.startActivity(intent,options.toBundle())
     }
 }
 
 interface OnListFragmentInteractionListener {
-    fun onListFragmentInteraction(item: Spot)
+    fun onListFragmentInteraction(item: Spot, view: View)
 }
