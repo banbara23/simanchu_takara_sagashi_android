@@ -5,8 +5,16 @@
     >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
-        android:name="ikemura.com.simanchu_takara_sagashi_android.common.MainApplication"
+        android:name=".common.MainApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name="ikemura.com.simanchu_takara_sagashi_android.ui.top.TopActivity">
+        <activity android:name=".ui.top.TopActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -23,13 +31,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity"
+            android:name=".ui.list.SpotListActivity"
             android:label="@string/title_item_list"
             />
         <activity
-            android:name="ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity"
+            android:name=".ui.detail.SpotDetailActivity"
             android:label="@string/title_item_detail"
-            android:parentActivityName="ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity"
+            android:parentActivityName=".ui.list.SpotListActivity"
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -37,11 +45,28 @@
                 />
         </activity>
         <activity
-            android:name="ikemura.com.simanchu_takara_sagashi_android.ui.fullscreen.FullscreenActivity"
+            android:name=".ui.fullscreen.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme"
             />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"
+            />
+
+        <activity
+            android:name=".common.MapsActivity"
+            android:label="@string/title_activity_maps"
+            ></activity>
     </application>
 
 </manifest>
