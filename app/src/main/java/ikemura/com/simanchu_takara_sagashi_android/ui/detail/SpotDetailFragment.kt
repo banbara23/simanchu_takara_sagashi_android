@@ -9,6 +9,12 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import ikemura.com.simanchu_takara_sagashi_android.Constants
@@ -27,13 +33,14 @@ import kotlinx.android.synthetic.main.spot_detail_fragment.favorite
 /**
  * スポット詳細 Fragment
  */
-class SpotDetailFragment : Fragment() {
+class SpotDetailFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var viewModel: SpotDetailViewModel
     private var isFavorite = false
     private val TAG: String = SpotDetailFragment::class.java.simpleName
     private var spot: Spot? = null
         get() = arguments?.getParcelable(Constants.ARG_SPOT)
+    private lateinit var googleMap: GoogleMap
 
     companion object {
         fun newInstance(args: Bundle?): SpotDetailFragment {
@@ -53,6 +60,15 @@ class SpotDetailFragment : Fragment() {
         setupViewModel()
         setupClickClick()
         setupFavorite()
+        setupMap()
+    }
+
+    private fun setupMap() {
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+//        val mapFragment = requireActivity().supportFragmentManager
+//                .findFragmentById(R.id.map) as SupportMapFragment
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
     }
 
     private fun setupClickClick() {
@@ -113,5 +129,14 @@ class SpotDetailFragment : Fragment() {
             R.drawable.ic_favorite_border_black_24dp
         }
         favorite.setImageDrawable(ContextCompat.getDrawable(requireContext(), drawable))
+    }
+
+    override fun onMapReady(_googleMap: GoogleMap) {
+        googleMap = _googleMap
+
+        // Add a marker in Sydney and move the camera
+        val sydney = LatLng(-34.0, 151.0)
+        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 }
