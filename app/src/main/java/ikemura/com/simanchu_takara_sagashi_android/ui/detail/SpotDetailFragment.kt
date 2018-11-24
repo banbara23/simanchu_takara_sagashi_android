@@ -133,10 +133,13 @@ class SpotDetailFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(_googleMap: GoogleMap) {
         googleMap = _googleMap
+        val lat: Double = spot?.location?.first()!!.latitude
+        val log: Double = spot?.location?.first()!!.longitude
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
+        val sydney = LatLng(lat, log)
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        googleMap.setMinZoomPreference(10F) //15: Streets
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 }
