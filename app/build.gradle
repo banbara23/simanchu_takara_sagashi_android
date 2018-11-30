@@ -69,6 +69,7 @@ dependencies {
 //    debugImplementation 'com.willowtreeapps.hyperion:hyperion-geiger-counter:0.9.24'
 //    debugImplementation 'com.willowtreeapps.hyperion:hyperion-timber:0.9.24'
 //    debugImplementation 'com.willowtreeapps.hyperion:hyperion-build-config:0.9.24'
+    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
 
     implementation 'androidx.core:core-ktx:1.0.0'
     implementation 'com.squareup.moshi:moshi:1.6.0'

@@ -87,7 +87,7 @@ class SpotDetailFragment : Fragment(), OnMapReadyCallback {
         }
         // 画像タップで全画面
         detail_image.setOnClickListener {
-            startActivity(Intent(requireActivity(), FullscreenActivity::class.java))
+            navigateToFullScreen()
         }
         // お気に入りタップ
         favorite.setOnClickListener { view ->
@@ -108,6 +108,12 @@ class SpotDetailFragment : Fragment(), OnMapReadyCallback {
             Snackbar.make(view, "お気に入りを${status}しました", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show()
         }
+    }
+
+    private fun navigateToFullScreen() {
+        val intent = Intent(activity, FullscreenActivity::class.java)
+        intent.putExtra(Constants.ARG_SPOT, spot)
+        startActivity(intent)
     }
 
     private fun setupViewModel() {

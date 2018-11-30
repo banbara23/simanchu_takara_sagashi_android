@@ -7,7 +7,10 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
+import com.squareup.picasso.Picasso
+import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
+import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity
 import kotlinx.android.synthetic.main.activity_fullscreen.full_image
 
@@ -16,6 +19,8 @@ import kotlinx.android.synthetic.main.activity_fullscreen.full_image
  * status bar and navigation/system bar) with user interaction.
  */
 class FullscreenActivity : AppCompatActivity() {
+    private var spot: Spot? = null
+        get() = intent.extras?.getParcelable(Constants.ARG_SPOT)
     private val mHideHandler = Handler()
     private val mHidePart2Runnable = Runnable {
         // Delayed removal of status and navigation bar
@@ -57,6 +62,7 @@ class FullscreenActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         mVisible = true
+        Picasso.get().load(spot?.image).into(full_image)
 
         // Set up the user interaction to manually show or hide the system UI.
         full_image.setOnClickListener { toggle() }
