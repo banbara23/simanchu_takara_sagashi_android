@@ -114,15 +114,8 @@
                 app:uiZoomControls="false"
                 app:uiZoomGestures="false"
                 tools:layout="@android:layout/simple_gallery_item"
-
                 />
 
-            <Button
-                android:id="@+id/navigation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="地図で見る"
-                />
         </LinearLayout>
     </ScrollView>
 
