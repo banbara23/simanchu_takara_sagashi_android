@@ -13,6 +13,8 @@ import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity
 import kotlinx.android.synthetic.main.activity_fullscreen.full_image
+import kotlinx.android.synthetic.main.activity_fullscreen.full_screen_toolbar
+import kotlinx.android.synthetic.main.activity_fullscreen.spot_name
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -63,10 +65,14 @@ class FullscreenActivity : AppCompatActivity() {
 
         mVisible = true
         Picasso.get().load(spot?.image).into(full_image)
-
+        spot_name.text = spot?.name
+        setSupportActionBar(full_screen_toolbar)
         // Set up the user interaction to manually show or hide the system UI.
         full_image.setOnClickListener { toggle() }
 
+        full_screen_toolbar.setNavigationOnClickListener {
+            finish()
+        }
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
@@ -79,7 +85,7 @@ class FullscreenActivity : AppCompatActivity() {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
-        delayedHide(100)
+//        delayedHide(100)
     }
 
     private fun toggle() {
