@@ -25,6 +25,7 @@ import ikemura.com.simanchu_takara_sagashi_android.helper.LevelViewHelper
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.fullscreen.FullscreenActivity
 import kotlinx.android.synthetic.main.spot_detail_fragment.description
+import kotlinx.android.synthetic.main.spot_detail_fragment.detail_address
 import kotlinx.android.synthetic.main.spot_detail_fragment.detail_image
 import kotlinx.android.synthetic.main.spot_detail_fragment.detail_level
 import kotlinx.android.synthetic.main.spot_detail_fragment.detail_place
@@ -117,6 +118,11 @@ class SpotDetailFragment : Fragment(), OnMapReadyCallback {
             detail_title.text = it.name
             LevelViewHelper.setLevelTextView(requireContext(), it.level, detail_level)
             detail_place.text = "場所：${it.location.first().place}"
+            if (it.address.isNotEmpty()) {
+                detail_address.visibility = View.VISIBLE
+                detail_address.text = "住所：${it.address}"
+            }
+
             description.text = it.description
         }
     }
