@@ -53,7 +53,7 @@ class SimpleItemRecyclerViewAdapter(private val parentActivity: FragmentActivity
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = spots!![position]
-        Picasso.get().load(item.thumbnail).into(holder.imageView)
+        Picasso.get().load(item.image).into(holder.imageView)
         holder.nameView.text = item.name
         LevelViewHelper.setLevelTextView(parentActivity, item.level, holder.levelView)
         holder.placeView.text = item.location.first().place

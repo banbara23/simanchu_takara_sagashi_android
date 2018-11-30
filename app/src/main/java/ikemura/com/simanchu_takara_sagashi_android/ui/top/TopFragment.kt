@@ -79,7 +79,7 @@ class TopFragment : Fragment() {
         spots.forEach { Log.d(TAG, "top recommend id:${it.id} name:${it.name}") }
         spots.first().let {
             Picasso.get()
-                    .load(it.thumbnail)
+                    .load(it.image)
                     .into(binding.includeCard1.recommendImage)
 
             binding.includeCard1.recommendName.text = it.name
@@ -89,7 +89,7 @@ class TopFragment : Fragment() {
         }
         spots[1].let {
             Picasso.get()
-                    .load(it.thumbnail)
+                    .load(it.image)
                     .into(binding.includeCard2.recommendImage)
             binding.includeCard2.recommendName.text = it.name
             binding.includeCard2.recommendPlace.text = it.location.first().place
@@ -97,7 +97,7 @@ class TopFragment : Fragment() {
         }
         spots[2].let {
             Picasso.get()
-                    .load(it.thumbnail)
+                    .load(it.image)
                     .into(binding.includeCard3.recommendImage)
             binding.includeCard3.recommendName.text = it.name
             binding.includeCard3.recommendPlace.text = it.location.first().place
