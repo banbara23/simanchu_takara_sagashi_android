@@ -1,7 +1,9 @@
 package ikemura.com.simanchu_takara_sagashi_android.ui.detail
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +31,8 @@ import kotlinx.android.synthetic.main.spot_detail_fragment.detail_place
 import kotlinx.android.synthetic.main.spot_detail_fragment.detail_title
 import kotlinx.android.synthetic.main.spot_detail_fragment.detail_toolbar
 import kotlinx.android.synthetic.main.spot_detail_fragment.favorite
+import java.io.UnsupportedEncodingException
+import java.net.URLEncoder
 
 /**
  * スポット詳細 Fragment
@@ -43,6 +47,7 @@ class SpotDetailFragment : Fragment(), OnMapReadyCallback {
     private lateinit var googleMap: GoogleMap
 
     companion object {
+        private const val MAP_ZOOM: Float = 10F
         fun newInstance(args: Bundle?): SpotDetailFragment {
             return SpotDetailFragment().apply {
                 arguments = args
@@ -136,10 +141,37 @@ class SpotDetailFragment : Fragment(), OnMapReadyCallback {
         val lat: Double = spot?.location?.first()!!.latitude
         val log: Double = spot?.location?.first()!!.longitude
 
-        // Add a marker in Sydney and move the camera
         val sydney = LatLng(lat, log)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.setMinZoomPreference(10F) //15: Streets
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        googleMap.setMinZoomPreference(MAP_ZOOM)    //ズーム
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney)) //カメラ位置
+        googleMap.addMarker(MarkerOptions().position(sydney))   //マーカー
+        googleMap.setOnMarkerClickListener {
+            //マーカークリック
+            openGoogleMapApp(lat, log)
+            false
+        }
+        googleMap.setOnMapClickListener { openGoogleMapApp(lat, log) } //マップクリック
+    }
+
+    /**
+     * GoogleMapアプリを開く
+     */
+    private fun openGoogleMapApp(latLng: Double, longitude: Double) {
+
+        var url = "geo:0,0?z=${Constants.DEFAULT_ZOOM}&q=$latLng,$longitude"
+
+        try {
+            val qs = "(" + URLEncoder.encode(spot?.name, "UTF-8") + ")"
+            url += qs
+        } catch (e: UnsupportedEncodingException) {
+            e.printStackTrace()
+        }
+        Log.d(TAG, url)
+
+        val gmmIntentUri = Uri.parse(url)
+
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+        requireActivity().startActivity(mapIntent)
     }
 }

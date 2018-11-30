@@ -105,6 +105,16 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                app:mapType="normal"
+                app:uiCompass="false"
+                app:uiMapToolbar="false"
+                app:uiRotateGestures="false"
+                app:uiScrollGestures="false"
+                app:uiTiltGestures="false"
+                app:uiZoomControls="false"
+                app:uiZoomGestures="false"
+                tools:layout="@android:layout/simple_gallery_item"
+
                 />
 
             <Button
