@@ -8,7 +8,6 @@
     >
 
     <ScrollView
-
         android:id="@+id/item_detail_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,8 +25,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_bar_height"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img_04"
                 android:transitionName="spot"
+                tools:srcCompat="@tools:sample/backgrounds/scenic"
                 />
 
             <TextView

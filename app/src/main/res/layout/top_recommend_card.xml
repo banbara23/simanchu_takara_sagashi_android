@@ -26,7 +26,7 @@
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:transitionName="spot"
-                tools:src="@drawable/img_04"
+                tools:src="@tools:sample/backgrounds/scenic"
                 />
 
             <TextView
