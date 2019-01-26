@@ -10,8 +10,8 @@ android {
         applicationId "ikemura.com.simanchu_takara_sagashi_android"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 7
-        versionName "0.7"
+        versionCode 8
+        versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
