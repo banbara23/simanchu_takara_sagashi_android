@@ -49,15 +49,13 @@ class SpotDetailFragment : Fragment(), OnMapReadyCallback {
 
     companion object {
         private const val MAP_ZOOM: Float = 10F
-        fun newInstance(args: Bundle?): SpotDetailFragment {
-            return SpotDetailFragment().apply {
-                arguments = args
-            }
+        fun newInstance(args: Bundle?) = SpotDetailFragment().also {
+            it.arguments = args
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.spot_detail_fragment, container, false)
     }
 
