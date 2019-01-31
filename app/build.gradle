@@ -15,12 +15,23 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
+
+    signingConfigs {
+        release {
+            storeFile file("key.jks")
+            storePassword "banbara1"
+            keyAlias "simanchu_takara_sagashi_android"
+            keyPassword "banbara1"
+        }
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
             debuggable true
         }
         release {
+            signingConfig signingConfigs.release
             debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
