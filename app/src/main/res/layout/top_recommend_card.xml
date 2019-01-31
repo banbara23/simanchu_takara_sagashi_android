@@ -26,6 +26,7 @@
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:transitionName="spot"
+                android:src="@mipmap/ic_launcher"
                 tools:src="@tools:sample/backgrounds/scenic"
                 />
 

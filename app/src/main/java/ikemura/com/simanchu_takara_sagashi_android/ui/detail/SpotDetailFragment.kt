@@ -21,7 +21,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
+import ikemura.com.simanchu_takara_sagashi_android.getViewModel
 import ikemura.com.simanchu_takara_sagashi_android.helper.LevelViewHelper
+import ikemura.com.simanchu_takara_sagashi_android.inflateWithBind
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.fullscreen.FullscreenActivity
 import kotlinx.android.synthetic.main.spot_detail_fragment.description

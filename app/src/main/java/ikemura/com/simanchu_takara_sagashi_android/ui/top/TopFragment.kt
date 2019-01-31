@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
@@ -15,6 +14,7 @@ import ikemura.com.simanchu_takara_sagashi_android.Constants
 import ikemura.com.simanchu_takara_sagashi_android.R
 import ikemura.com.simanchu_takara_sagashi_android.databinding.TopFragmentBinding
 import ikemura.com.simanchu_takara_sagashi_android.helper.LevelViewHelper.setLevelTextView
+import ikemura.com.simanchu_takara_sagashi_android.inflateWithBind
 import ikemura.com.simanchu_takara_sagashi_android.model.Spot
 import ikemura.com.simanchu_takara_sagashi_android.ui.detail.SpotDetailActivity
 import ikemura.com.simanchu_takara_sagashi_android.ui.list.SpotListActivity
@@ -36,9 +36,9 @@ class TopFragment : Fragment() {
     private lateinit var spots: List<Spot>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?): View {
+        savedInstanceState: Bundle?): View {
         viewModel = ViewModelProviders.of(this).get(TopViewModel::class.java)
-        binding = DataBindingUtil.inflate(inflater, R.layout.top_fragment, container, false)
+        binding = inflateWithBind(R.layout.top_fragment, container)
         return binding.root
     }
 
