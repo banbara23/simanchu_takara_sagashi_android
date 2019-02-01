@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "300913311227",
+    "firebase_url": "https://simanchu-no-takarasagashi.firebaseio.com",
+    "project_id": "simanchu-no-takarasagashi",
+    "storage_bucket": "simanchu-no-takarasagashi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300913311227:android:b9d81ddb263a9659",
+        "android_client_info": {
+          "package_name": "ikemura.com.simanchu_takara_sagashi_android.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300913311227-4ld0begce6fagcusker1vt4paohl087f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ikemura.com.simanchu_takara_sagashi_android.debug",
+            "certificate_hash": "3c6a4799952325acb4b6c5a1f726fac8ea97d436"
+          }
+        },
+        {
+          "client_id": "300913311227-ji889rpsjkesqr4tlfthth8eac5d9seg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArElY76yEyDdLMyeUofYgi9Dw-hx0DpnM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300913311227-ji889rpsjkesqr4tlfthth8eac5d9seg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
