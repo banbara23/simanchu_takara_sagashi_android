@@ -8,37 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:300913311227:android:dd8c07668b20c1fd",
-        "android_client_info": {
-          "package_name": "ikemura.com.simanchu_takara_sagashi_android"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "300913311227-ji889rpsjkesqr4tlfthth8eac5d9seg.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyArElY76yEyDdLMyeUofYgi9Dw-hx0DpnM"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:300913311227:android:b9d81ddb263a9659",
         "android_client_info": {
           "package_name": "ikemura.com.simanchu_takara_sagashi_android.debug"
