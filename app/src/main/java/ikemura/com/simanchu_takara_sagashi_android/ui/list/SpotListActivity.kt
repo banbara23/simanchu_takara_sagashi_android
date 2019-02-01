@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
+import com.google.firebase.analytics.FirebaseAnalytics
 import ikemura.com.simanchu_takara_sagashi_android.R
 import kotlinx.android.synthetic.main.spot_list_activity.toolbar
 
@@ -13,7 +14,7 @@ class SpotListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.spot_list_activity)
-
+        FirebaseAnalytics.getInstance(this)
         setSupportActionBar(toolbar)
         toolbar.title = title
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
